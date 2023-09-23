@@ -1,0 +1,111 @@
+@use '@/styles/_dirs/variables';
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 1.25em 2em;
+    color: #0f121a;
+    background: #edf2ef;
+    border-bottom: 1px solid #0f121a;
+    z-index: 99;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    &_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1em;
+    }
+
+    &_title {
+        flex: 1 1 33.33%;
+        z-index: 99;
+
+        h1 {
+            width: fit-content;
+            padding: 0.2em 0.5em;
+            font-size: calc(1.15em + 0.5vw);
+            border: 2.5px solid #0f121a;
+            border-radius: 0.1em;
+        }
+    }
+
+    &_links {
+        flex: 1 1 33.33%;
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
+
+        @media screen and (max-width: 660px) {
+            display: none;
+        }
+    }
+
+    &_social {
+        flex: 1 1 33.33%;
+        display: flex;
+        justify-content: flex-end;
+
+        @media screen and (max-width: 660px) {
+            display: none;
+        }
+    }
+
+    &_menu {
+        display: none;
+        width: 40px;
+        height: 35px;
+        cursor: pointer;
+        z-index: 99;
+
+        .menu {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            padding: 0.5em;
+            background-color: #0f121a;
+            border-radius: 0.3em;
+
+            .trace {
+                width: 100%;
+                height: 3px;
+                background-color: variables.$primary-color;
+                border-radius: 0.1em;
+                transition: 0.3s ease-in-out;
+
+                &:first-child {
+                    transform: translateY(0);
+                }
+                &:nth-child(2) {
+                    transform: translateY(5px);
+                }
+                &:last-child {
+                    transform: translateY(10px);
+                }
+            }
+        }
+
+        &.active {
+            .menu {
+                .trace {
+                    &:first-child {
+                        transform: translate(0px, 7.5px) rotate(-225deg);
+                    }
+                    &:nth-child(2) {
+                        transform: translate(-20px, 5px);
+                        opacity: 0;
+                    }
+                    &:last-child {
+                        transform: translate(0px, 1.5px) rotate(225deg);
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 660px) {
+            display: block;
+        }
+    }
+}

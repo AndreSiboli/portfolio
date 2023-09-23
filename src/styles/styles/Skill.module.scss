@@ -1,0 +1,58 @@
+@use '@/styles/_dirs/variables';
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    width: 100%;
+
+    &_name {
+        span {
+            display: block;
+            font-size: calc(1em + 0.15vw);
+            font-weight: bold;
+            transform: translateY(2.5px);
+            color: variables.$secondary-color;
+        }
+    }
+
+    &_loading {
+        width: 100%;
+
+        .loading_percent {
+            width: 100%;
+            position: relative;
+
+            span {
+                display: block;
+                width: fit-content;
+                font-size: 0.8em;
+                font-weight: bold;
+                position: absolute;
+                left: 0%;
+                color: lighten($color: variables.$secondary-color, $amount: 25%);
+                transition: 1.8s ease-in-out;
+
+                &:last-child {
+                    position: relative;
+                    visibility: hidden;
+                }
+            }
+        }
+
+        .loading_bar {
+            width: 100%;
+            height: 10px;
+            background-color: lighten($color: variables.$secondary-color, $amount: 50%);
+            border-radius: 0.2em;
+        }
+
+        .loading_load {
+            width: 0%;
+            transition: 1.8s ease-in-out;
+            height: 100%;
+            background-color: variables.$third-color;
+            border-radius: 0.2em;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@use '@/styles/_dirs/variables';
+
+.link {
+    display: block;
+    background-color: variables.$secondary-color;
+    color: variables.$primary-color;
+    padding: 1em 1.5em;
+    border-radius: 1em;
+    transition: 0.25s ease-in-out;
+    width: fit-content;
+
+    &:hover {
+        background-color: lighten($color: variables.$secondary-color, $amount: 20%);
+    }
+}

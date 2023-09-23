@@ -1,0 +1,77 @@
+@use '@/styles/_dirs/variables';
+
+.carousel {
+    position: relative;
+    width: 100%;
+
+    &_buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 9;
+        pointer-events: none;
+        // background-color: #0004;
+
+        .carousel_button {
+            pointer-events: auto;
+
+            &:first-child {
+                transform: translateX(-10px);
+            }
+
+            &:last-child {
+                transform: translateX(10px);
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                border: none;
+                cursor: pointer;
+                padding: 1em;
+                border-radius: 50%;
+                // border: 2px solid variables.$secondary-color;
+                box-shadow: 0 0 5px variables.$secondary-color;
+                transition: 0.3s ease-in-out;
+
+                svg {
+                    transition: 0.3s ease-in-out;
+                }
+
+                &:hover:not(:disabled) {
+                    background-color: variables.$third-color;
+
+                    svg {
+                        color: variables.$primary-color;
+                    }
+                }
+
+                &:disabled {
+                    cursor: no-drop;
+                    background-color: rgba($color: #000000, $alpha: 0.5);
+                    box-shadow: none;
+
+                    svg {
+                        color: rgba($color: variables.$primary-color, $alpha: 0.8);
+                    }
+                }
+            }
+        }
+    }
+
+    &_projects {
+        overflow: hidden;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+
+        > div {
+            margin-left: 7.5px;
+            margin-right: 7.5px;
+        }
+    }
+}

@@ -1,0 +1,74 @@
+@use '@/styles/_dirs/variables';
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    background-color: variables.$primary-color;
+    padding-top: 80px;
+    z-index: 98;
+    transition: 0.35s ease-in-out;
+
+    &.active {
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &_container {
+        overflow: auto;
+        width: 100%;
+    }
+
+    &_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+    }
+
+    &_links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+
+        a {
+            font-size: calc(2em + 1vw);
+        }
+    }
+
+    &_social {
+        display: flex;
+        gap: 1em;
+
+        a {
+            font-size: calc(2em + 1vw);
+
+            svg {
+                transition: 0.8s ease-in-out;
+                transform-style: preserve-3d;
+            }
+
+            @media screen and (hover: hover) {
+                &:hover {
+                    svg {
+                        // animation: rotate 1s ease forwards;
+                        transform: rotateY(360deg) perspective(1000px);
+                    }
+                }
+            }
+        }
+    }
+}

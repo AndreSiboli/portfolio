@@ -1,0 +1,107 @@
+@use '@/styles/_dirs/variables';
+
+.footer {
+    background: variables.$secondary-color;
+    color: variables.$primary-color;
+    padding: 2em;
+
+    &_container {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        min-height: 300px;
+    }
+
+    &_logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2em;
+
+        h1 {
+            width: fit-content;
+            padding: 0.2em 0.5em;
+            font-size: calc(1.15em + 0.5vw);
+            border: 2.5px solid variables.$primary-color;
+            border-radius: 0.1em;
+        }
+
+        .socialMedia {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1em;
+
+            a {
+                font-size: calc(1.2em + 0.25vw);
+
+                svg {
+                    transition: 0.25s ease-in-out;
+                }
+
+                @media screen and (hover: hover) {
+                    &:hover {
+                        svg {
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_links {
+        display: flex;
+        gap: 3em;
+        padding: 4em 0;
+        border-top: 1px solid variables.$primary-color;
+        border-bottom: 1px solid variables.$primary-color;
+
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+        }
+
+        .footer_about {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            max-width: 300px;
+            width: 100%;
+
+            @media screen and (max-width: 500px) {
+                max-width: 100%;
+            }
+
+            p {
+                color: darken($color: #fff, $amount: 30%);
+                font-size: 0.95em;
+            }
+        }
+
+        .group_links {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            a {
+                font-weight: 400;
+                font-size: 0.95em;
+            }
+        }
+
+        .nav_links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25em;
+            color: darken($color: #fff, $amount: 30%);
+        }
+    }
+
+    &_copyright {
+        display: flex;
+        justify-content: center;
+
+        p {
+            color: darken($color: #fff, $amount: 30%);
+        }
+    }
+}
