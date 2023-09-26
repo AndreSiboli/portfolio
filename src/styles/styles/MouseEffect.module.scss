@@ -1,15 +1,17 @@
 @use '@/styles/_dirs/variables';
-
 .mouseEffect {
-    width: 25px;
-    height: 25px;
-    position: absolute;
-
     pointer-events: none;
-    background-color: rgba(variables.$third-color, 0.2);
-    border-radius: 50%;
-    z-index: 999;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 0 5px rgba(variables.$third-color, 0.1);
-    transition: opacity .2s ease-in-out;
+    
+    @media (hover: hover) {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+
+        background-color: rgba(variables.$third-color, 0.2);
+        border-radius: 50%;
+        z-index: 999;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 0 5px rgba(variables.$third-color, 0.1);
+        transition: opacity 0.2s ease-in-out;
+    }
 }

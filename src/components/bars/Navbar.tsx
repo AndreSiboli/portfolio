@@ -15,7 +15,6 @@ export default function Navbar() {
     const [active, setActive] = useState(false);
 
     function openMenu() {
-        console.log(active);
         if (!active) document.body.style.overflowY = 'hidden';
         else document.body.style.overflowY = 'auto';
         defineActive();
@@ -52,7 +51,7 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    <Menu active={active} />
+                    <Menu active={active} handleMenu={defineActive} />
                 </div>
             </Container>
         </header>

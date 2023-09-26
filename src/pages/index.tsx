@@ -42,9 +42,11 @@ export default function Home() {
                                 </div>
                                 <div className={styles.info_description}>
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-                                        quos cumque, unde voluptatum sequi similique, voluptate
-                                        voluptates id eligendi architecto, tempora sint?
+                                        If you&apos;re looking for a web developer who&apos;s
+                                        passionate, skilled, and committed to making your online
+                                        vision a reality, you&apos;ve come to the right place.
+                                        Let&apos;s connect and turn your ideas into a web presence
+                                        that truly stands out.
                                     </p>
                                 </div>
                                 <div className={styles.info_download}>
@@ -88,10 +90,13 @@ export default function Home() {
                             <div className={styles.info_content}>
                                 <span>Web Developer</span>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Recusandae ex quibusdam aliquid officia, consequatur sequi
-                                    necessitatibus nobis suscipit laborum soluta sed? Delectus est
-                                    minima quaerat dolore nulla placeat, eligendi distinctio.
+                                    What&apos;s up? My name is André Siboli. I was born and live in
+                                    Brazil. I graduated in Information Technology from Universidade
+                                    Cruzeiro do Sul. I&apos;ve always been interested in programming
+                                    since I was a child. I love this world and how a simple line of
+                                    code can change lives. For me, web development is a blend of art
+                                    and technology, where every line of code is a stroke on the
+                                    canvas of the digital world.
                                 </p>
                             </div>
                         </div>
