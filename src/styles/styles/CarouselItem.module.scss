@@ -36,6 +36,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 0.5em;
         visibility: hidden;
         opacity: 0;
         position: absolute;
@@ -52,7 +53,12 @@
             font-size: 1.8em;
         }
 
-        span {
+        .info_date {
+            color: darken($color: variables.$primary-color, $amount: 25%);
+            font-size: 0.9em;
+        }
+
+        .info_type {
             color: variables.$third-color;
         }
     }

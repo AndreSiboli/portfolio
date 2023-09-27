@@ -32,8 +32,9 @@ export default function Footer() {
                         <div className={styles.footer_about}>
                             <h3>About me</h3>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fuga
-                                ipsam odio nisi! Id aliquid error possimus aut officiis porro
+                                I&apos;m excited to see where the future of technology takes us and to
+                                continue creating meaningful online experiences for users around the
+                                globe.
                             </p>
                         </div>
                         <div className={styles.group_links}>

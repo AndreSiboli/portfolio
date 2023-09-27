@@ -15,7 +15,6 @@
         bottom: 0;
         z-index: 9;
         pointer-events: none;
-        // background-color: #0004;
 
         .carousel_button {
             pointer-events: auto;
@@ -35,7 +34,6 @@
                 cursor: pointer;
                 padding: 1em;
                 border-radius: 50%;
-                // border: 2px solid variables.$secondary-color;
                 box-shadow: 0 0 5px variables.$secondary-color;
                 transition: 0.3s ease-in-out;
 

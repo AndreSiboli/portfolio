@@ -9,14 +9,15 @@ interface PropTypes {
         name: string;
         link: string;
         image: StaticImport;
-        type: string
+        type: string;
+        postedAt: string;
     };
-    item: any
+    item: any;
 }
 
 export default function CarouselItem(props: PropTypes) {
     const { data, item } = props;
-    const { name, link, image, type } = data;
+    const { name, link, image, type, postedAt } = data;
 
     return (
         <div className={styles.project} ref={item}>
@@ -32,8 +33,9 @@ export default function CarouselItem(props: PropTypes) {
                     />
                 </div>
                 <div className={styles.project_info}>
+                    <span className={styles.info_date}>{postedAt}</span>
                     <h3>{name}</h3>
-                    <span>{type}</span>
+                    <span className={styles.info_type}>{type}</span>
                 </div>
             </Link>
         </div>

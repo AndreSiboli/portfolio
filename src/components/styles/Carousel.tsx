@@ -7,7 +7,7 @@ import CarouselItem from './CarouselItem';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
 
 interface PropTypes {
-    datas: { name: string; link: string; image: StaticImport; type: string }[];
+    datas: { name: string; link: string; image: StaticImport; type: string; postedAt: string }[];
 }
 
 export default function Carousel(props: PropTypes) {
