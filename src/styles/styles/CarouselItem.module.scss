@@ -63,7 +63,7 @@
         }
     }
 
-    @media screen and (hover: hover) {
+    @media (hover: hover) and (pointer: fine) {
         &:hover {
             .project_image {
                 transform: scale(1.05);

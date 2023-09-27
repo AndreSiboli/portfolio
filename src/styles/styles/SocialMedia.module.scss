@@ -13,7 +13,7 @@
                 transition: 0.25s ease-in-out;
             }
 
-            @media screen and (hover: hover) {
+            @media (hover: hover) and (pointer: fine) {
                 &:hover {
                     svg {
                         transform: scale(1.05);

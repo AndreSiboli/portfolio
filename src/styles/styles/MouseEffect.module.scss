@@ -2,7 +2,7 @@
 .mouseEffect {
     pointer-events: none;
     
-    @media (hover: hover) {
+    @media (hover: hover) and (pointer: fine) {
         width: 25px;
         height: 25px;
         position: absolute;

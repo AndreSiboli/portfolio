@@ -6,9 +6,9 @@
     font-size: 1em;
     font-weight: 600;
     transition: 0.25s ease-in-out;
-    padding-bottom: .1em;
+    padding-bottom: 0.1em;
 
-    @media screen and (hover: hover) {
+    @media (hover: hover) and (pointer: fine) {
         &:hover {
             &:after {
                 width: 100%;

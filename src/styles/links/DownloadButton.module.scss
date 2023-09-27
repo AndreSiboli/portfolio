@@ -9,7 +9,9 @@
     transition: 0.25s ease-in-out;
     width: fit-content;
 
-    &:hover {
-        background-color: lighten($color: variables.$secondary-color, $amount: 20%);
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            background-color: lighten($color: variables.$secondary-color, $amount: 20%);
+        }
     }
 }
