@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Inter } from 'next/font/google';
 
 import styles from '@/styles/bars/Navbar.module.scss';
@@ -14,10 +14,35 @@ const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] });
 export default function Navbar() {
     const [active, setActive] = useState(false);
 
+    useEffect(() => {
+        function resize() {
+            const width = window.innerWidth;
+            if (width > 660) {
+                setActive(false)
+                overflowBody('auto');
+            };
+        }
+
+        window.onresize = resize;
+
+        return () => {
+            window.onresize = null;
+        };
+    }, []);
+
     function openMenu() {
-        if (!active) document.body.style.overflowY = 'hidden';
-        else document.body.style.overflowY = 'auto';
+        if (!active) overflowBody('hidden');
+        else overflowBody('auto');
         defineActive();
+    }
+
+    function manageLink() {
+        defineActive();
+        overflowBody('auto');
+    }
+
+    function overflowBody(mode: 'auto' | 'hidden' | 'scroll') {
+        document.body.style.overflowY = mode;
     }
 
     function defineActive() {
@@ -29,7 +54,7 @@ export default function Navbar() {
             <Container>
                 <div className={styles.header_container}>
                     <div className={styles.header_title}>
-                        <h1>Portifolio</h1>
+                        <h1>Portfolio</h1>
                     </div>
                     <div className={styles.header_links}>
                         <LinkEffect link="/#home" content="Home" />
@@ -51,7 +76,7 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    <Menu active={active} handleMenu={defineActive} />
+                    <Menu active={active} handleMenu={manageLink} />
                 </div>
             </Container>
         </header>

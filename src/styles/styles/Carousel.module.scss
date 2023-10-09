@@ -41,14 +41,6 @@
                     transition: 0.3s ease-in-out;
                 }
 
-                &:hover:not(:disabled) {
-                    background-color: variables.$third-color;
-
-                    svg {
-                        color: variables.$primary-color;
-                    }
-                }
-
                 &:disabled {
                     cursor: no-drop;
                     background-color: rgba($color: #000000, $alpha: 0.5);
@@ -56,6 +48,16 @@
 
                     svg {
                         color: rgba($color: variables.$primary-color, $alpha: 0.8);
+                    }
+                }
+
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover:not(:disabled) {
+                        background-color: variables.$third-color;
+
+                        svg {
+                            color: variables.$primary-color;
+                        }
                     }
                 }
             }

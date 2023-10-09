@@ -1,4 +1,4 @@
-import { Roboto, Inter } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.scss';
 import { projects } from '@/fake-api/projects';
 
@@ -8,12 +8,11 @@ import Container from '@/components/utils/Container';
 import DownloadButton from '@/components/links/DownloadButton';
 import Img from '@/components/utils/Img';
 import SocialMedia from '@/components/styles/SocialMedia';
+import Carousel from '@/components/styles/Carousel';
 
 import image from '@/assets/home/program.svg';
 import me from '@/assets/home/me.jpg';
-import Carousel from '@/components/styles/Carousel';
 
-const robot = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });
 const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] });
 
 export default function Home() {
@@ -121,7 +120,7 @@ export default function Home() {
                                 <Skill name="NodeJs" percent={55} />
                                 <Skill name="Git/GitHub" percent={70} />
                                 <Skill name="MySQL/MongoDb" percent={70} />
-                                <Skill name="Inglês" percent={60} />
+                                <Skill name="English" percent={60} />
                             </div>
                         </div>
                     </div>

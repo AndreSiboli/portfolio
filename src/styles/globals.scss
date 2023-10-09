@@ -39,7 +39,7 @@ a {
 }
 
 h2 {
-    font-size: calc(1.5em + 1.5vw);
+    font-size: clamp(1.5em, 1.5em + 1.5vw, 2.75em);
 }
 
 h3 {

@@ -23,7 +23,7 @@ export default function Footer() {
             <Container>
                 <div className={styles.footer_container}>
                     <div className={styles.footer_logo}>
-                        <h1>Portifolio</h1>
+                        <h1>Portfolio</h1>
                         <div className={styles.socialMedia}>
                             <SocialMedia />
                         </div>
