@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Inter } from 'next/font/google';
 
 import styles from '@/styles/bars/Footer.module.scss';
 
 import LinkEffect from '@/components/links/LinkEffect';
-import Container from '@/components/utils/Container';
+import Container from '@/components/layout/Container';
 import SocialMedia from '@/components/styles/SocialMedia';
 
-const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] });
 
 export default function Footer() {
-    const [year, setYear] = useState(2023);
+    const [year, setYear] = useState(2024);
 
     useEffect(() => {
         const date = new Date();
@@ -19,7 +17,7 @@ export default function Footer() {
     }, []);
 
     return (
-        <footer className={`${styles.footer} ${inter.className}`}>
+        <footer className={`${styles.footer}`}>
             <Container>
                 <div className={styles.footer_container}>
                     <div className={styles.footer_logo}>
@@ -30,17 +28,26 @@ export default function Footer() {
                     </div>
                     <div className={styles.footer_links}>
                         <div className={styles.footer_about}>
-                            <h3>About me</h3>
+                            <span>About me</span>
                             <p>
-                                I&apos;m excited to see where the future of technology takes us and to
-                                continue creating meaningful online experiences for users around the
-                                globe.
+                                I&apos;m excited to see where the future of technology takes us and
+                                to continue creating meaningful online experiences for users around
+                                the globe.
                             </p>
                         </div>
                         <div className={styles.group_links}>
-                            <h3>Mention</h3>
+                            <span>Mention</span>
                             <nav className={styles.nav_links}>
-                                <LinkEffect link="https://undraw.co/" content="UnDraw" />
+                                <LinkEffect
+                                    link="https://pexels.com/"
+                                    content="Pexel"
+                                    target="_blank"
+                                />
+                                <LinkEffect
+                                    link="https://undraw.co/"
+                                    content="UnDraw"
+                                    target="_blank"
+                                />
                             </nav>
                         </div>
                     </div>

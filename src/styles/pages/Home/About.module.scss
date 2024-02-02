@@ -1,0 +1,100 @@
+@use '@/styles/_dirs/variables';
+
+.about {
+    padding: 0 2em;
+
+    &_container {
+        display: flex;
+        gap: 2.5em;
+        padding: 6.25em 0;
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column-reverse;
+            gap: 4em;
+        }
+    }
+
+    &_info {
+        flex: 1 1 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5em;
+
+        .info_title {
+            h2 {
+                border-top: 5px solid variables.$secondary-color;
+                width: fit-content;
+                padding-top: 10px;
+                text-transform: uppercase;
+            }
+        }
+
+        .info_content {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            max-width: 600px;
+            width: 100%;
+
+            span {
+                color: variables.$accent-color;
+                font-size: 1.2em;
+            }
+
+            p {
+                font-size: clamp(0.9em, 0.9em + 0.8vw, 1.15em);
+                line-height: 1.65em;
+                color: lighten($color: variables.$secondary-color, $amount: 20%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            // gap: 3em;
+
+            .info_title {
+                h2 {
+                    padding-top: 0;
+                    padding-left: 10px;
+                    border-top: none;
+                    border-left: 5px solid variables.$secondary-color;
+                }
+            }
+        }
+    }
+
+    &_image {
+        flex: 1 1 40%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            max-width: 350px;
+            width: 100%;
+            aspect-ratio: 1/1;
+            background-color: variables.$secondary-color;
+            border-radius: 1em;
+
+            &_image {
+                flex: 1 1 80%;
+                height: 80%;
+
+                img {
+                    border-radius: 0.9em 0.9em 0 0;
+                }
+            }
+
+            &_social {
+                flex: 1 1 20%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1em;
+            }
+        }
+    }
+}

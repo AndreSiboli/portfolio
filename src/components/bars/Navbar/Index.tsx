@@ -1,15 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Inter } from 'next/font/google';
 
-import styles from '@/styles/bars/Navbar.module.scss';
+import styles from '@/styles/bars/Navbar/Index.module.scss';
 
-import LinkEffect from '../links/LinkEffect';
-import Container from '../utils/Container';
-import Menu from '@/components/bars/Menu';
-
-import SocialMedia from '../styles/SocialMedia';
-
-const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] });
+import LinkEffect from '@/components/links/LinkEffect';
+import Container from '@/components/layout/Container';
+import Menu from '@/components/bars/Navbar/Menu';
+import SocialMedia from '@/components/styles/SocialMedia';
 
 export default function Navbar() {
     const [active, setActive] = useState(false);
@@ -18,9 +14,9 @@ export default function Navbar() {
         function resize() {
             const width = window.innerWidth;
             if (width > 660) {
-                setActive(false)
+                setActive(false);
                 overflowBody('auto');
-            };
+            }
         }
 
         window.onresize = resize;
@@ -50,7 +46,7 @@ export default function Navbar() {
     }
 
     return (
-        <header className={`${styles.header} ${inter.className}`}>
+        <header className={`${styles.header} `}>
             <Container>
                 <div className={styles.header_container}>
                     <div className={styles.header_title}>

@@ -1,9 +1,9 @@
 @use '@/styles/_dirs/variables';
+@use '@/styles/_dirs/mixins' as mix;
 
 .project {
     display: inline-block;
     width: calc((100% / 4) - 15px);
-    // height: 400px;
     aspect-ratio: 3/4;
     background-color: #0003;
     border-radius: 1em;
@@ -59,11 +59,23 @@
         }
 
         .info_type {
-            color: variables.$third-color;
+            color: variables.$accent-color;
         }
     }
 
-    @media (hover: hover) and (pointer: fine) {
+    @media (hover: none) {
+        .project_image {
+            filter: brightness(0.4);
+        }
+
+        .project_info {
+            position: absolute;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    @include mix.nonMobile {
         &:hover {
             .project_image {
                 transform: scale(1.05);

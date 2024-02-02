@@ -1,5 +1,6 @@
-import Container from '@/components/utils/Container';
 import styles from '@/styles/pages/404.module.scss';
+
+import Container from '@/components/layout/Container';
 
 import { Roboto } from 'next/font/google';
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });

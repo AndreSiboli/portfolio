@@ -1,4 +1,5 @@
 @use '@/styles/_dirs/variables';
+@use '@/styles/_dirs/mixins' as mix;
 
 .link {
     display: block;
@@ -9,7 +10,7 @@
     transition: 0.25s ease-in-out;
     width: fit-content;
 
-    @media (hover: hover) and (pointer: fine) {
+    @include mix.nonMobile {
         &:hover {
             background-color: lighten($color: variables.$secondary-color, $amount: 20%);
         }

@@ -84,7 +84,6 @@ export default function Carousel(props: PropTypes) {
         const car = carousel.current;
 
         const next = current + num;
-        // const width = item.current.offsetWidth;
         const width = car.offsetWidth;
 
         disableButton(next, maxRoll);

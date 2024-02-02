@@ -21,7 +21,7 @@ export default function CarouselItem(props: PropTypes) {
 
     return (
         <div className={styles.project} ref={item}>
-            <Link href={link} target="_blank">
+            <Link href={link} target="_blank" aria-label={`${data.name} ${data.type}`}>
                 <div className={styles.project_image}>
                     <Img
                         src={image}

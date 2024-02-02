@@ -1,12 +1,9 @@
-import { Inter } from 'next/font/google';
-import styles from '@/styles/bars/Menu.module.scss';
+import styles from '@/styles/bars/Navbar/Menu.module.scss';
 
 import Link from 'next/link';
-import LinkEffect from '../links/LinkEffect';
+import LinkEffect from '@/components/links/LinkEffect';
 
 import { FaLinkedinIn, FaSquareGithub } from 'react-icons/fa6';
-
-const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] });
 
 interface PropTypes {
     active: boolean;
@@ -17,7 +14,7 @@ export default function Menu(props: PropTypes) {
     const { active, handleMenu } = props;
 
     return (
-        <div className={`${styles.menu} ${active ? styles.active : ''} ${inter.className}`}>
+        <div className={`${styles.menu} ${active ? styles.active : ''}`}>
             <div className={styles.menu_container}>
                 <div className={styles.menu_wrapper}>
                     <div className={styles.menu_links} onClick={() => handleMenu()}>

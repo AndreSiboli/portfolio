@@ -5,12 +5,10 @@
     position: fixed;
     top: 0;
     padding: 1.25em 2em;
-    color: #0f121a;
-    background: #edf2ef;
-    border-bottom: 1px solid #0f121a;
+    color: variables.$secondary-color;
+    background: variables.$primary-color;
+    border-bottom: 1px solid variables.$secondary-color;
     z-index: 99;
-
-    font-family: Arial, Helvetica, sans-serif;
 
     &_container {
         display: flex;
@@ -27,7 +25,7 @@
             width: fit-content;
             padding: 0.2em 0.5em;
             font-size: calc(1.15em + 0.5vw);
-            border: 2.5px solid #0f121a;
+            border: 2.5px solid variables.$secondary-color;
             border-radius: 0.1em;
         }
     }

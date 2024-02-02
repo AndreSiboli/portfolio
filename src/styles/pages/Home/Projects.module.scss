@@ -1,0 +1,21 @@
+@use '@/styles/_dirs/variables';
+
+.projects {
+    padding: 0 2em;
+
+    &_container {
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+        padding: 6.25em 0;
+    }
+
+    &_title {
+        h2 {
+            border-left: 5px solid variables.$secondary-color;
+            width: fit-content;
+            padding-left: 10px;
+            text-transform: uppercase;
+        }
+    }
+}

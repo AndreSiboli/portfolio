@@ -1,4 +1,5 @@
 @use '@/styles/_dirs/variables';
+@use '@/styles/_dirs/mixins' as mix;
 
 .carousel {
     position: relative;
@@ -51,9 +52,9 @@
                     }
                 }
 
-                @media (hover: hover) and (pointer: fine) {
+                @include mix.nonMobile {
                     &:hover:not(:disabled) {
-                        background-color: variables.$third-color;
+                        background-color: variables.$accent-color;
 
                         svg {
                             color: variables.$primary-color;

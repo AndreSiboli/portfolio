@@ -48,19 +48,6 @@ export default function Skill(props: PropTypes) {
         }, time);
     }
 
-    // useEffect(() => {
-    //     let percentCont = 0;
-    //     const time = Math.round(1800 / percent);
-
-    //     let interval: any = setInterval(() => {
-    //         if (percentCont >= percent) return clearInterval(interval);
-    //         percentCont++;
-    //         setPercents(percentCont);
-    //     }, time);
-    // }, []);
-
-    // console.log(percents)
-
     return (
         <div className={styles.skill} ref={skillReference}>
             <div className={styles.skill_name}>

@@ -3,8 +3,16 @@ import arcade from '@/assets/projects/arcade.png';
 import galleria from '@/assets/projects/galleria.jpg';
 import gallery from '@/assets/projects/gallery.jpg';
 import theatre from '@/assets/projects/theatre.jpeg';
+import echo from '@/assets/projects/echo.jpg';
 
 export const projects = [
+    {
+        name: 'Echo',
+        link: 'https://andresiboli.github.io/echo/',
+        image: echo,
+        type: 'Website',
+        postedAt: '2024/01/29',
+    },
     {
         name: 'Podcast',
         link: 'https://andresiboli.github.io/podcast/',

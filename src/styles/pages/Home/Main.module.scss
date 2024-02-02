@@ -1,0 +1,138 @@
+@use '@/styles/_dirs/variables';
+
+.main {
+    padding: 0 2em;
+
+    &_container {
+        padding-top: 5em;
+        display: flex;
+        justify-content: space-between;
+        gap: 3em;
+        width: 100%;
+        min-height: 100dvh;
+
+        @media screen and (min-width: 1517px) {
+            min-height: 600px;
+        }
+
+        @media screen and (max-width: 978px) {
+            min-height: 550px;
+        }
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &_info {
+        flex: 1 1 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (max-width: 768px) {
+            justify-content: flex-start;
+        }
+    }
+
+    &_image {
+        flex: 1 1 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .image {
+            max-width: 450px;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+
+        &_title {
+            h1 {
+                display: flex;
+                gap: 0.35em;
+                font-size: clamp(0px, 1.2em + 1.25vw, 2.25em);
+                line-height: 1em;
+
+                @media screen and (max-width: 1200px) {
+                    font-size: clamp(0px, 1.2em + 2vw, 3em);
+                    flex-direction: column;
+                }
+
+                @media screen and (max-width: 768px) {
+                    flex-direction: row;
+                }
+
+                @media screen and (max-width: 600px) {
+                    flex-direction: column;
+                }
+
+                .words {
+                    display: flex;
+                    position: relative;
+                    min-width: 280px;
+
+                    span {
+                        display: block;
+                        position: absolute;
+                        animation: changeText 6s linear infinite;
+                        color: variables.$accent-color;
+
+                        &:first-child {
+                            animation: none;
+                            position: relative;
+                            visibility: hidden;
+                        }
+
+                        &:last-child {
+                            animation-delay: 3s;
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &_description {
+            p {
+                color: lighten($color: variables.$secondary-color, $amount: 10%);
+                line-height: 1.25em;
+                font-size: 1.05em;
+            }
+        }
+    }
+
+    @keyframes changeText {
+        0% {
+            opacity: 0;
+        }
+        5% {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+        10%,
+        45% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        50% {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+        80%,
+        100% {
+            opacity: 0;
+        }
+    }
+}

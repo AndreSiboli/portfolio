@@ -15,7 +15,12 @@ export default function SocialMedia(props: PropTypes) {
     return (
         <div className={styles.socialMedia}>
             <div className={styles.socialMedia_link}>
-                <Link href="http://www.github.com/andresiboli" target="_blank" style={style}>
+                <Link
+                    href="http://www.github.com/andresiboli"
+                    target="_blank"
+                    style={style}
+                    aria-label="Link to Github"
+                >
                     <FaSquareGithub />
                 </Link>
             </div>
@@ -24,6 +29,7 @@ export default function SocialMedia(props: PropTypes) {
                     href="https://www.linkedin.com/in/andr%C3%A9-siboli-81b969244/"
                     target="_blank"
                     style={style}
+                    aria-label="Link to Linkedin "
                 >
                     <FaLinkedinIn />
                 </Link>

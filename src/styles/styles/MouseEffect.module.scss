@@ -1,17 +1,18 @@
 @use '@/styles/_dirs/variables';
+@use '@/styles/_dirs/mixins' as mix;
 .mouseEffect {
     pointer-events: none;
-    
-    @media (hover: hover) and (pointer: fine) {
+
+    @include mix.nonMobile {
         width: 25px;
         height: 25px;
         position: absolute;
 
-        background-color: rgba(variables.$third-color, 0.2);
+        background-color: rgba(variables.$accent-color, 0.2);
         border-radius: 50%;
         z-index: 999;
         transform: translate(-50%, -50%);
-        box-shadow: 0 0 0 5px rgba(variables.$third-color, 0.1);
+        box-shadow: 0 0 0 5px rgba(variables.$accent-color, 0.1);
         transition: opacity 0.2s ease-in-out;
     }
 }
