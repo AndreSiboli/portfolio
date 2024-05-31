@@ -1,0 +1,52 @@
+@use "@/styles/_dirs/variables" as var;
+
+.about {
+  padding: 0 1em;
+
+  &_container {
+    padding-top: 7em;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    min-height: 100vh;
+
+    @media (min-width: 1367px) {
+      min-height: 500px;
+    }
+  }
+
+  &_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  &_description {
+    p {
+      text-align: center;
+    }
+  }
+
+  &_dataset {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  &_button {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+
+    a {
+      font-size: 0.95em;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@use "@/styles/_dirs/variables" as var;
+
+.loading {
+  height: 20px;
+  width: 20px;
+  border: 2px solid var.$lightest_color;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: .5s ease-in-out infinite spin;
+
+  @keyframes spin {
+    0%,
+    30% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

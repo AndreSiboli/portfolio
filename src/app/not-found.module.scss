@@ -1,0 +1,31 @@
+@use "@/styles/_dirs/variables" as var;
+
+.error {
+  padding: 0 2em;
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding-top: 7em;
+    padding-bottom: 2em;
+  }
+
+  &_404 {
+    font-size: clamp(4em, 4em + 7vw, 10em);
+  }
+
+  &_joke {
+    text-align: center;
+  }
+
+  &_link {
+    margin-top: 1em;
+
+    a {
+      color: var.$brand_color;
+    }
+  }
+}

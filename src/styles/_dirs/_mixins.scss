@@ -1,0 +1,5 @@
+@mixin OnlyPc {
+  @media (hover: hover) and (pointer: fine) {
+    @content
+  }
+}

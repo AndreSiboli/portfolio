@@ -1,0 +1,14 @@
+.projects {
+  &_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+    padding-top: 7em;
+    padding-bottom: 2em;
+  }
+
+  &_carousel {
+    width: 100%;
+  }
+}

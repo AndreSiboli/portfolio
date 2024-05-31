@@ -1,0 +1,177 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.hero {
+  padding: 0 2em;
+
+  &_container {
+    padding-top: 7.5em;
+    padding-bottom: 2em;
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    min-height: 100dvh;
+
+    @media (min-width: 1367px) {
+      min-height: 500px;
+    }
+
+    @media (max-width: 1000px) {
+      flex-direction: column-reverse;
+    }
+
+    @media (max-width: 680px) {
+      min-height: auto;
+      padding-top: 4em;
+    }
+
+    @media (max-width: 450px) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 1em;
+    }
+  }
+
+  &_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    width: 100%;
+
+    @media (max-width: 1000px) {
+      width: fit-content;
+    }
+
+    @media (max-width: 450px) {
+      flex-direction: column;
+    }
+  }
+
+  &_social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    height: 100%;
+
+    svg {
+      color: var.$brand_color;
+      font-size: 1.5em;
+      transition: color 0.25s ease-in-out;
+
+      @include mix.OnlyPc {
+        &:hover {
+          color: var.$brand_color_700;
+        }
+      }
+    }
+
+    @media (max-width: 1000px) {
+      justify-self: stretch;
+    }
+
+    @media (max-width: 450px) {
+      width: 100%;
+      justify-content: center;
+      flex-direction: row;
+    }
+  }
+
+  &_information {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  &_introduce {
+    p {
+      font-size: 1.1em;
+    }
+  }
+
+  &_title {
+    h1 {
+      display: flex;
+      gap: 0.35em;
+      font-size: clamp(0px, 1.4em + 1vw, 2.25em);
+      line-height: 1em;
+
+      .words {
+        display: flex;
+        position: relative;
+
+        span {
+          display: block;
+          position: absolute;
+          color: var.$brand_color;
+          animation: 9s linear infinite changeText;
+          text-wrap: nowrap;
+
+          &:first-child {
+            animation: none;
+            position: relative;
+            visibility: hidden;
+          }
+
+          &:nth-child(3) {
+            animation-delay: 3s;
+            opacity: 0;
+          }
+
+          &:last-child {
+            animation-delay: 6s;
+            opacity: 0;
+          }
+
+          @keyframes changeText {
+            0%,
+            33.33% {
+              opacity: 0;
+              transform: translateY(5px);
+            }
+
+            38.33%,
+            63.33% {
+              opacity: 1;
+              transform: translateY(0px);
+            }
+
+            66.66%,
+            100% {
+              opacity: 0;
+              transform: translateY(5px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &_about {
+    p {
+      color: #222;
+    }
+  }
+
+  &_button {
+    margin-top: 2em;
+    max-width: fit-content;
+  }
+
+  &_image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    &_container {
+      position: relative;
+      max-width: 300px;
+      width: 100%;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+  }
+}
