@@ -3,12 +3,12 @@ import { CSSProperties } from "react";
 
 interface PropsType {
   src: string | StaticImageData;
-  alt: string;
+  alt?: string;
   style?: CSSProperties;
 }
 
 export default function Img(props: PropsType) {
-  const { src, alt, style = {} } = props;
+  const { src, alt = "", style = {} } = props;
 
   return (
     <Image

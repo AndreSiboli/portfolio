@@ -11,7 +11,7 @@ import {
 } from "react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 
-import styles from "./Carousel.module.scss";
+import styles from "@/styles/carousel/Carousel.module.scss";
 
 import { CarouselType, CarouselTypeUser } from "@/@types/carouselType";
 
@@ -200,7 +200,7 @@ export default function Carousel(props: PropsType) {
     const currentTranslateX = matrix.m41;
     translate.current = Number(currentTranslateX);
     initialTimeClick.current = e.timeStamp;
-   
+
     if ("touches" in e) {
       initial.current = -e.touches[0].pageX;
     } else {
@@ -211,7 +211,6 @@ export default function Carousel(props: PropsType) {
   function dragMove(e: MouseEvent | TouchEvent) {
     if (!config.slide) return;
 
-    e.preventDefault();
     const main = parent.current;
     const slider = wrapper.current;
     if (!main || !slider || !dragging.current || allowShift.current) return;
@@ -242,22 +241,30 @@ export default function Carousel(props: PropsType) {
     const width = main.clientWidth - 300;
     const howFast = e.timeStamp - initialTimeClick.current;
 
-    if ("touches" in e) {
-      initial.current = -e.touches[0].clientX;
-    } else {
+    function movement(position: number) {
       if (
-        initial.current < -e.pageX - width / 2 ||
-        (howFast <= 200 && initial.current < -e.pageX)
+        initial.current < -position - width / 2 ||
+        (howFast <= 200 && initial.current < -position)
       ) {
         changeItem(1);
-      } else if (
-        initial.current > -e.pageX + width / 2 ||
-        (howFast <= 200 && initial.current > -e.pageX)
+        return;
+      }
+      if (
+        initial.current > -position + width / 2 ||
+        (howFast <= 200 && initial.current > -position)
       ) {
         changeItem(-1);
-      } else {
-        changeItem(0);
+        return;
       }
+      changeItem(0);
+    }
+
+    if ("touches" in e) {
+      const pos = e.changedTouches[0].pageX;
+      movement(pos);
+    } else {
+      const pos = e.pageX;
+      movement(pos);
     }
   }
 
@@ -292,6 +299,9 @@ export default function Carousel(props: PropsType) {
         onMouseMove={(e) => dragMove(e)}
         onMouseUp={(e) => dragEnd(e)}
         onMouseOut={(e) => dragOut(e)}
+        onTouchStart={(e) => dragStart(e)}
+        onTouchMove={(e) => dragMove(e)}
+        onTouchEndCapture={(e) => dragEnd(e)}
       >
         {children.map((item) =>
           cloneElement(item, {

@@ -1,14 +1,16 @@
 import { CSSProperties } from "react";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import styles from "./Item.module.scss";
+import { StaticImageData } from "next/image";
+import styles from "@/styles/carousel/Item.module.scss";
 
 import Image from "next/image";
-import LinkButton from "../links/LinkButton";
+import LinkButton from "@/app/components/links/LinkButton";
+
 import { PiArrowRight } from "react-icons/pi";
+import Img from "../utils/Img";
 
 interface PropsType {
   data: {
-    src: StaticImport | string;
+    src: StaticImageData | string;
     name: string;
     link: string;
     type: string;
@@ -26,13 +28,7 @@ export default function Item(props: PropsType) {
     <div className={styles.item} style={style}>
       <div className={styles.item_wrapper}>
         <div className={styles.item_image}>
-          <Image
-            src={data.src}
-            alt=""
-            sizes="100vw"
-            fill
-            style={{ objectFit: "cover" }}
-          />
+          <Img src={data.src} alt="" />
         </div>
         <div className={styles.item_container}>
           <div className={styles.item_header}>
