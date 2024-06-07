@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { sendEmail } from "@/utils/requests/contact";
-import { checkEmail, checkName, checkSubject } from "@/utils/FormManager";
+import { sendEmail } from "@/services/contact";
+import { checkEmail, checkName, checkSubject } from "@/utils/formManager";
 import styles from "@/styles/form/FormContact.module.scss";
 
 import Input from "@/app/components/form/Input";

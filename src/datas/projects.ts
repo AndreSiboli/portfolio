@@ -61,7 +61,7 @@ export const projects = [
   {
     id: 3,
     name: "Galleria",
-    link: "https://andresiboli.github.io/galleria/",
+    link: "https://galleria-opal.vercel.app/",
     src: galleria,
     type: "Website",
     description:
