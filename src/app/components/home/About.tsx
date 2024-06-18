@@ -42,7 +42,7 @@ export default function About() {
 
             <div className={styles.about_button}>
               <LinkButton
-                to="./curriculo.pdf"
+                to="./siboli-cv.pdf"
                 text={
                   <>
                     Download CV <PiDownloadSimple />

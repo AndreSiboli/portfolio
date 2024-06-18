@@ -15,7 +15,7 @@ export const projects = [
     src: endurance,
     type: "Website",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique incidunt ipsum! Modi, autem neque. Reiciendis fugit delectus suscipit deleniti possimus sed nihil ullam laudantium, neque facilis nulla. Maxime, magni!",
+      "This is a gym website built with Next.js! I focused on creating a seamless user experience. This fictional site was developed to enhance my skills in managing large websites. The design is entirely my own creation.",
     postedAt: "2024/05/05",
   },
   {
@@ -25,7 +25,7 @@ export const projects = [
     src: echo,
     type: "Website",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique incidunt ipsum! Modi, autem neque. Reiciendis fugit delectus suscipit deleniti possimus sed nihil ullam laudantium, neque facilis nulla. Maxime, magni!",
+      "This is a photo studio website built with Next.js. The main focus of this site is the slider in the hero section. This is the first project where I attempted to create the design myself.",
     postedAt: "2024/01/29",
   },
   {
@@ -35,7 +35,7 @@ export const projects = [
     src: bibleApi,
     type: "API",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique incidunt ipsum! Modi, autem neque. Reiciendis fugit delectus suscipit deleniti possimus sed nihil ullam laudantium, neque facilis nulla. Maxime, magni!",
+      "This API was made with Node.js and Express. It is free to use, but it doesn't include all the books. This was my first attempt at creating an API.",
     postedAt: "2023/05/04",
   },
   {
@@ -45,7 +45,7 @@ export const projects = [
     src: podcast,
     type: "Website",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique incidunt ipsum! Modi, autem neque. Reiciendis fugit delectus suscipit deleniti possimus sed nihil ullam laudantium, neque facilis nulla. Maxime, magni!",
+      "This is a podcast website built with React. I used another site as a reference to create it.",
     postedAt: "2023/02/20",
   },
   {
@@ -55,7 +55,7 @@ export const projects = [
     src: arcade,
     type: "Website",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique incidunt ipsum! Modi, autem neque. Reiciendis fugit delectus suscipit deleniti possimus sed nihil ullam laudantium, neque facilis nulla. Maxime, magni!",
+      "This is a game website built with React. I used another site as a reference to create it.",
     postedAt: "2023/08/01",
   },
   {
@@ -65,7 +65,7 @@ export const projects = [
     src: galleria,
     type: "Website",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique incidunt ipsum! Modi, autem neque. Reiciendis fugit delectus suscipit deleniti possimus sed nihil ullam laudantium, neque facilis nulla. Maxime, magni!",
+      "This website was built with Next.js. This was my first attempt to built a gallery website with an external API.",
     postedAt: "2023/05/12",
   },
   {
@@ -75,7 +75,7 @@ export const projects = [
     src: gallery,
     type: "Website",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique incidunt ipsum! Modi, autem neque. Reiciendis fugit delectus suscipit deleniti possimus sed nihil ullam laudantium, neque facilis nulla. Maxime, magni!",
+      "This is a gallery website built with React. I used another site as a reference to create it",
     postedAt: "2023/02/04",
   },
   {
@@ -85,7 +85,7 @@ export const projects = [
     src: theatre,
     type: "Website",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique incidunt ipsum! Modi, autem neque. Reiciendis fugit delectus suscipit deleniti possimus sed nihil ullam laudantium, neque facilis nulla. Maxime, magni!",
+      "This website is simple. It just a banner to a fiction Theatre.",
     postedAt: "2023/09/12",
   },
 ];
