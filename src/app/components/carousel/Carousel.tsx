@@ -13,7 +13,7 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 
 import styles from "@/styles/carousel/Carousel.module.scss";
 
-import { CarouselType, CarouselTypeUser } from "@/@types/carouselType";
+import { CarouselType, CarouselTypeUser } from "@/_types/carouselType";
 
 interface PropsType {
   carouselConfig: CarouselTypeUser;
@@ -25,7 +25,7 @@ export default function Carousel(props: PropsType) {
 
   const configBase = {
     animationTime: 250,
-    parentWidth: 1200,
+    parentWidth: '1200px',
     childWidth: "calc(100% - 200px)",
     margin: 5,
     buttons: true,
@@ -276,7 +276,7 @@ export default function Carousel(props: PropsType) {
     <div
       className={styles.carousel}
       ref={parent}
-      style={{ maxWidth: `${config.parentWidth}px` }}
+      style={{ maxWidth: `${config.parentWidth}` }}
     >
       {config.buttons && (
         <div className={styles.carousel_buttons}>

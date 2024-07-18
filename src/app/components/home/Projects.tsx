@@ -1,5 +1,5 @@
 import { projects } from "@/datas/projects";
-import { CarouselProductTypeUser } from "@/_types/carouselProductType";
+import { CarouselTypeUser } from "@/_types/carouselType";
 import styles from "@/styles/home/Projects.module.scss";
 
 import Container from "@/app/components/layout/Container";
@@ -15,7 +15,7 @@ export default function Projects() {
     { ...projects[1], id: 18 },
   ];
 
-  const config: CarouselProductTypeUser = {
+  const config: CarouselTypeUser = {
     animationTime: 200,
     margin: 8,
     childWidth: "calc(100% - 200px)",

@@ -1,6 +1,6 @@
 export interface CarouselType {
   animationTime: number;
-  parentWidth: number;
+  parentWidth: string;
   childWidth: string;
   margin: number;
   buttons: boolean;
@@ -10,7 +10,7 @@ export interface CarouselType {
 
 export interface CarouselTypeUser {
   animationTime?: number;
-  parentWidth?: number;
+  parentWidth?: string;
   childWidth?: string;
   margin?: number;
   buttons?: boolean;
