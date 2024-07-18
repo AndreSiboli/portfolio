@@ -5,12 +5,12 @@
   justify-content: center;
   align-items: center;
   padding: 2em;
-  height: 80%;
+  // height: 100%;
   background-color: #fff;
 
   border-radius: 1em;
   user-select: none;
-  box-shadow: 0 0 10px 1px #0005;
+  box-shadow: 0 0 5px 1px #0004;
 
   &_wrapper {
     display: flex;
@@ -84,6 +84,8 @@
   }
 
   &_description {
+    height: 100%;
+    
     p {
       color: var.$neutral_color_700;
       line-height: 1.6em;
