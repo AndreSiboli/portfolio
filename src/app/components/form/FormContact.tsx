@@ -83,7 +83,7 @@ export default function FormContact() {
 
     const res = await sendEmail(data);
     setLoading(false);
-    console.log(res)
+    console.log(res);
     if (res !== 200) return setMessageErr("An error has occured");
     clearInputs();
   }

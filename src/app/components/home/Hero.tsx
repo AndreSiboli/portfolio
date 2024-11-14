@@ -93,7 +93,11 @@ export default function Hero() {
 
           <div className={styles.hero_image}>
             <div className={styles.hero_image_container}>
-              <Img src={HeroImage} alt="An image about me" style={{objectPosition: 'center -45px '}}/>
+              <Img
+                src={HeroImage}
+                alt="An image about me"
+                style={{ objectPosition: "center -45px " }}
+              />
             </div>
           </div>
         </div>
