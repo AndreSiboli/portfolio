@@ -1,0 +1,15 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.language {
+  svg {
+    font-size: 1.5em;
+    transition: color .15s ease-in-out;
+
+    @include mix.OnlyPc{
+        &:hover{
+            color: var.$brand_color_200
+        }
+    }
+  }
+}

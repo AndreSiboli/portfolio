@@ -1,0 +1,44 @@
+.projects {
+  padding: 0 1em;
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+    padding-top: 7em;
+    padding-bottom: 2em;
+  }
+
+  &_wrapper {
+    width: 100%;
+  }
+
+  &_manager {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  &_carousel {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    margin-top: 1em;
+
+    @media (max-width: 970px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &_button {
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 2em;
+  }
+}

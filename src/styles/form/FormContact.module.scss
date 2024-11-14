@@ -1,0 +1,25 @@
+@use "@/styles/_dirs/variables" as var;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  max-width: 500px;
+  width: 100%;
+
+  &_input {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  &_button {
+    max-width: 250px;
+    width: 100%;
+  }
+
+  &_err {
+    color: var.$support_color_err;
+    font-size: 0.9em;
+  }
+}

@@ -1,0 +1,100 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.contact {
+  padding: 0 1em;
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding-top: 7em;
+    padding-bottom: 2em;
+  }
+
+  &_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2em;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &_info {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    .info_header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+
+      p {
+        color: var.$neutral_color_700;
+      }
+
+      @media (max-width: 1024px) {
+        align-items: center;
+      }
+    }
+
+    .info_datas {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      .info_data {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        .data_type {
+          display: flex;
+          align-items: center;
+          gap: 1em;
+          font-weight: bold;
+          color: var.$brand_color;
+
+          svg {
+            font-size: 1.5em;
+          }
+        }
+        .data_data {
+          padding: 0;
+        }
+      }
+    }
+
+    .info_social {
+      display: flex;
+      gap: 2em;
+
+      @media (max-width: 1024px) {
+        width: 100%;
+        justify-content: center;
+      }
+
+      a {
+        svg {
+          font-size: 2em;
+          transition: color 0.15s ease-in-out;
+        }
+
+        @include mix.OnlyPc {
+          &:hover {
+            svg {
+              color: var.$brand_color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

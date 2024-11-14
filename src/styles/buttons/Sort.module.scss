@@ -1,0 +1,60 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.sort {
+  position: relative;
+  z-index: 90;
+
+  &_title {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    cursor: pointer;
+
+    p {
+      text-transform: uppercase;
+    }
+  }
+
+  &_container {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    background: var.$neutral_color_100;
+    box-shadow: 0 0 5px #0005;
+    max-width: 300px;
+  }
+
+  &_options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    width: fit-content;
+    padding: 2em 1.5em;
+
+    .option {
+      input {
+        display: none;
+      }
+
+      label {
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      &.selected {
+        label {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &.opened {
+    .sort_container {
+      display: block;
+    }
+  }
+}

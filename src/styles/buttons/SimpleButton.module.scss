@@ -1,0 +1,10 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.button {
+  background: none;
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95em;
+}

@@ -1,0 +1,98 @@
+@use "@/styles/_dirs/variables" as var;
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  // height: 100%;
+  background-color: #fff;
+
+  border-radius: 1em;
+  user-select: none;
+  box-shadow: 0 0 5px 1px #0004;
+
+  &_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1.5em;
+    width: 100%;
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &_image {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    aspect-ratio: 3/2;
+    background: var.$darkest_color;
+    border-radius: 0.5em;
+
+    img {
+      pointer-events: none;
+      border-radius: 0.5em;
+    }
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: stretch;
+    gap: 1em;
+    max-width: 400px;
+    width: 100%;
+
+    @media (max-width: 1000px) {
+      align-self: auto;
+    }
+  }
+
+  &_header {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: calc(1em + 1vw);
+    }
+  }
+
+  &_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+    .info_type,
+    .info_postedAt {
+      font-size: 0.9em;
+    }
+
+    .info_type {
+      color: var.$brand_color;
+      font-weight: bold;
+    }
+
+    .info_postedAt {
+      color: var.$neutral_color_700;
+    }
+  }
+
+  &_description {
+    height: 100%;
+    
+    p {
+      color: var.$neutral_color_700;
+      line-height: 1.6em;
+    }
+  }
+
+  &_button {
+    width: fit-content;
+  }
+}

@@ -1,0 +1,30 @@
+$darkest_color: #000;
+$lightest_color: #fff;
+
+$pri_text_color: #fff;
+$sec_text_color: #000;
+
+//brand colors are better in button, links, navigation and icons. Generally used to draw attention of the user
+$brand_color_100: #e6ccff;
+$brand_color_200: #c3a1e6;
+$brand_color_300: #a37acc;
+$brand_color_400: #8659b3;
+$brand_color: #8c36e2;
+$brand_color_600: #532680;
+$brand_color_700: #3d1466;
+$brand_color_800: #2a084d;
+$brand_color_900: #1f003d;
+
+// Support color are used to give the user a message. For example, error, success, message log. Make them more desaturated
+$support_color_err: #cc0014;
+$support_color_rght: #00aa64;
+$support_color_mesg: #657ff0;
+
+// Neutral colors
+$neutral_color_900: #000000;
+$neutral_color_700: #2c2c2c;
+$neutral_color_600: #555555;
+$neutral_color_500: #808080;
+$neutral_color_400: #a9a9a9;
+$neutral_color_300: #d3d3d3;
+$neutral_color_100: #ffffff;

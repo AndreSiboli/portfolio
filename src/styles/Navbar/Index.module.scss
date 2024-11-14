@@ -1,0 +1,70 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.header {
+  background: var.$lightest_color;
+  width: 100%;
+  padding: 1em 2em;
+  position: fixed;
+  z-index: 99;
+  transition: border-bottom 0.15s ease-in-out;
+  border-bottom: 1px solid transparent;
+
+  &:not(.onTop) {
+    border-bottom-color: lighten($color: var.$darkest_color, $amount: 60);
+  }
+
+  &_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  &_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  &_logo {
+    z-index: 99;
+  }
+
+  &_navigation {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+
+    .navigation_links {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+
+      a {
+        transition: transform 0.15s ease-in-out;
+
+        @include mix.OnlyPc {
+          &:hover {
+            transform: translate3d(0, -3px, 0);
+          }
+        }
+      }
+
+      @media (max-width: 680px) {
+        display: none;
+      }
+    }
+
+    .navigation_action {
+      svg {
+        display: block;
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  @media (max-width: 680px) {
+    display: none;
+  }
+}

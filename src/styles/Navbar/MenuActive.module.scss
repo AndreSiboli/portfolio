@@ -1,0 +1,106 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.menu_wrapper {
+  position: fixed;
+  visibility: hidden;
+  inset: 0;
+  transition: 0.25s ease-in-out;
+
+  .menu {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: var.$lightest_color;
+    border-radius: 1em 1em 0 0;
+    box-shadow: 0 0 5px 1px #0005;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease-in-out;
+
+    &_container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1em;
+      height: 100%;
+      padding: 1em 2em;
+    }
+
+    &_navigation {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(50px, 100px));
+      justify-content: space-evenly;
+
+      .navigation_link {
+        a {
+          aspect-ratio: 1/1;
+          padding: 1em;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5em;
+          border-radius: 0.5em;
+          transition: gap 0.25s ease-in-out, padding 0.25s ease-in-out,
+            background 0.25s ease-in-out, color 0.25s ease-in-out;
+
+          svg {
+            font-size: 1.3em;
+            transition: color 0.25s ease-in-out;
+          }
+
+          @include mix.OnlyPc {
+            &:hover {
+              gap: 1em;
+              padding: calc(1em - (0.5em / 2)) 1em;
+              background: var.$brand_color_100;
+              color: var.$brand_color_900;
+
+              svg {
+                color: var.$brand_color_900;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &_footer {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        svg {
+          display: block;
+          font-size: 2em;
+          transition: transform 0.25s ease-in-out;
+        }
+
+        @include mix.OnlyPc {
+          &:hover {
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.active {
+    visibility: visible;
+    background: #0003;
+
+    .menu {
+      max-height: 500px;
+    }
+  }
+}

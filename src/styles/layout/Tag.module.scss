@@ -1,0 +1,22 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.tag {
+  padding: 0.25em 0.5em;
+  width: fit-content;
+  border-radius: 0.25em;
+
+  p {
+    font-size: 0.85em;
+  }
+
+  &.website {
+    background: rgb(240, 146, 111);
+    color: #fff;
+  }
+
+  &.api {
+    background: rgb(96, 96, 235);
+    color: #fff;
+  }
+}

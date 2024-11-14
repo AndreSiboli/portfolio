@@ -1,0 +1,18 @@
+@use "@/styles/_dirs/variables" as var;
+
+.footer {
+  padding: 0 2em;
+  border-top: 1px solid lighten($color: var.$darkest_color, $amount: 60);
+
+  &_container {
+    padding: 1em 2em;
+
+    @media (max-width: 680px) {
+      padding-bottom: 5em;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}

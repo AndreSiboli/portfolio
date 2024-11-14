@@ -1,0 +1,147 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background: #0005;
+  z-index: 999;
+  transition: 0.15s ease-in-out;
+  pointer-events: none;
+  visibility: hidden;
+  padding: 1em;
+
+  &.appear {
+    visibility: visible;
+    pointer-events: auto;
+
+    .test {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+  }
+
+  .test {
+    height: 100%;
+    align-content: center;
+    border-radius: 0.5em;
+    transform: scale(0.5);
+    opacity: 0;
+    transition: transform 0.15s cubic-bezier(0.37, 0.77, 0.49, 1.15),
+      opacity 0.15s ease-in-out;
+
+    @media (max-width: 900px) {
+      overflow: auto;
+      @include mix.Scroll;
+    }
+  }
+
+  &_project {
+    display: flex;
+    gap: 2em;
+    background: var.$neutral_color_100;
+    max-width: 900px;
+    width: fit-content;
+    border-radius: 0.5em;
+    padding: 1em;
+    position: relative;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+
+    .project_close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 99;
+
+      button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        background: var.$brand_color_200;
+        border-radius: 0 0.5em 0 0.5em;
+        padding: 0.5em;
+        transition: background 0.15s ease-in-out;
+
+        @include mix.OnlyPc {
+          &:hover {
+            background: var.$brand_color_100;
+          }
+        }
+
+        svg {
+          display: block;
+          font-size: 1.25em;
+        }
+      }
+    }
+
+    // .project_image {
+    //   flex: 1 1 50%;
+    //   min-width: 400px;
+    //   position: relative;
+
+    //   @media (max-width: 900px) {
+    //     flex-direction: column;
+    //     aspect-ratio: 16/9;
+    //   }
+
+    //   img {
+    //     object-position: left center;
+    //   }
+    // }
+
+    .project_info {
+      flex: 1 1 50%;
+
+      .info_header {
+        h1 {
+          font-weight: normal;
+        }
+      }
+
+      .info_middle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.5em;
+
+        time {
+          font-size: 0.9em;
+          color: var.$neutral_color_700;
+        }
+      }
+
+      .info_description {
+        margin-top: 1em;
+        max-width: 400px;
+        width: 100%;
+
+        p {
+          line-height: 1.5em;
+        }
+      }
+
+      .info_techs {
+        display: flex;
+        gap: 0.5em;
+        margin-top: 1em;
+      }
+
+      .info_buttons {
+        display: flex;
+        gap: 0.25em;
+        margin-top: 1em;
+
+        a {
+          width: fit-content;
+        }
+      }
+    }
+  }
+}
