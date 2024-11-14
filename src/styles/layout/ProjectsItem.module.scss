@@ -13,6 +13,10 @@
     overflow: hidden;
     border-radius: 0.5em;
     aspect-ratio: 16/9;
+
+    img {
+      transition: transform 0.25s ease-in-out;
+    }
   }
 
   &_info {
@@ -48,11 +52,17 @@
 
   @include mix.OnlyPc {
     &:hover {
+      .project_image {
+        img {
+          transform: scale(1.05);
+        }
+      }
+
       .project_info {
         .info_start {
           h2,
           p {
-            color: var.$brand_color_600;
+            color: var.$brand_color_400;
           }
         }
       }
