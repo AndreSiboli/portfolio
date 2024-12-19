@@ -106,22 +106,29 @@
           display: block;
           position: absolute;
           color: var.$brand_color;
-          animation: 9s linear infinite changeText;
+          animation: 6s linear infinite changeText;
           text-wrap: nowrap;
+          opacity: 0;
 
           &:first-child {
             animation: none;
             position: relative;
             visibility: hidden;
+            opacity: 0;
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
           }
 
           &:nth-child(3) {
-            animation-delay: 3s;
+            animation-delay: 2s;
             opacity: 0;
           }
 
           &:last-child {
-            animation-delay: 6s;
+            animation-delay: 4s;
+            opacity: 0;
           }
 
           @keyframes changeText {
