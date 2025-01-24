@@ -11,9 +11,24 @@ import endurance from "@/assets/projects/endurance.jpg";
 import enduranceFull from "@/assets/full/endurance.png";
 import bibleApi from "@/assets/projects/bible-api.jpg";
 import moda from "@/assets/projects/moda.jpg";
+import valorant from "@/assets/projects/valorant.jpg";
 import modaFull from "@/assets/full/moda.png";
 
 export const projects: ProjectsType[] = [
+  {
+    id: "A7B8I9",
+    name: "Valorant",
+    links: {
+      website: "https://valorant-blush.vercel.app/",
+      github: "https://github.com/AndreSiboli/valorant",
+    },
+    src: { thumbnail: valorant, fullView: modaFull },
+    tags: ["Website"],
+    description:
+      "I've tried to make a website that uses Redux, API requests, and some animations. I'm using a fan-made API for Valorant. This project is still in development. (I've never played Valorant before.)",
+    postedAt: "2025/01/24",
+    technologies: ["Next.js", "Typescript", "Sass", "React", "Redux", "Axios"],
+  },
   {
     id: "A4C2C5",
     name: "Moda",
