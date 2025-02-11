@@ -11,7 +11,8 @@ export type LanguagesType =
   | "Express"
   | "Mongodb"
   | "Axios"
-  | "Redux";
+  | "Redux"
+  | "Excel";
 
 export interface ProjectsType {
   id: string;

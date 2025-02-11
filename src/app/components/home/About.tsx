@@ -5,10 +5,11 @@ import LinkButton from "@/app/components/links/LinkButton";
 import Dataset from "@/app/components/layout/Dataset";
 
 import { PiDownloadSimple } from "react-icons/pi";
+import { projects } from "@/datas/projects";
 
 export default function About() {
   const dataset = [
-    { name: "Projects completed", num: 7 },
+    { name: "Projects completed", num: projects.length },
     { name: "Certifications Earned", num: 17 },
     { name: "Language spoken", num: 2 },
   ];

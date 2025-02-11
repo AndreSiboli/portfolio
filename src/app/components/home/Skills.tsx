@@ -23,7 +23,6 @@ export default function Skills() {
       { name: "Redux", percent: 60 },
     ],
   };
-
   const backendSkills = {
     icon: <PiBracketsCurly />,
     group: "Back-end",
@@ -34,17 +33,16 @@ export default function Skills() {
       { name: "Typescript", percent: 80 },
     ],
   };
-
   const otherSkills = {
     icon: <PiSealQuestion />,
     group: "Others",
     skills: [
       { name: "Git/Github", percent: 70 },
       { name: "Jest", percent: 50 },
+      { name: "Excel", percent: 65 },
       { name: "English", percent: 70 },
     ],
   };
-
   const hobbies = {
     icon: <PiGameController />,
     group: "Hobbies",

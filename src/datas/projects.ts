@@ -12,9 +12,23 @@ import enduranceFull from "@/assets/full/endurance.png";
 import bibleApi from "@/assets/projects/bible-api.jpg";
 import moda from "@/assets/projects/moda.jpg";
 import valorant from "@/assets/projects/valorant.jpg";
+import excel from "@/assets/projects/excel.jpg";
 import modaFull from "@/assets/full/moda.png";
 
 export const projects: ProjectsType[] = [
+  {
+    id: "A7B8I9",
+    name: "Planilhas",
+    links: {
+      github: "https://github.com/AndreSiboli/Excel",
+    },
+    src: { thumbnail: excel, fullView: modaFull },
+    tags: ["Excel"],
+    description:
+      "In this repository have all my projects that I've made in Excel.",
+    postedAt: "2025/02/11",
+    technologies: ["Excel"],
+  },
   {
     id: "A7B8I9",
     name: "Valorant",

@@ -6,14 +6,14 @@
   visibility: hidden;
   inset: 0;
   transition: 0.25s ease-in-out;
+  z-index: 99;
 
   .menu {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
-    z-index: 99;
-    background-color: var.$lightest_color;
+    background: var.$neutral_color_100;
     border-radius: 1em 1em 0 0;
     box-shadow: 0 0 5px 1px #0005;
     max-height: 0;

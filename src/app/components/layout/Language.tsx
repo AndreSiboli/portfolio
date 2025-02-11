@@ -11,6 +11,7 @@ import {
   BiLogoMongodb,
 } from "react-icons/bi";
 import { SiNextdotjs, SiExpress, SiAxios, SiRedux } from "react-icons/si";
+import { PiMicrosoftExcelLogo } from "react-icons/pi";
 
 interface PropsType {
   language: LanguagesType;
@@ -27,7 +28,8 @@ type LangsType =
   | "express"
   | "mongodb"
   | "axios"
-  | "redux";
+  | "redux"
+  | "excel";
 
 export default function Language(props: PropsType) {
   const { language } = props;
@@ -44,6 +46,7 @@ export default function Language(props: PropsType) {
     mongodb: <BiLogoMongodb />,
     axios: <SiAxios />,
     redux: <SiRedux />,
+    excel: <PiMicrosoftExcelLogo />,
   };
 
   function changeLanguage() {

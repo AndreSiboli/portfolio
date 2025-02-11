@@ -2,15 +2,15 @@
 @use "@/styles/_dirs/mixins" as mix;
 
 .menu {
-  z-index: 99;
   visibility: hidden;
   transition: background 0.15s ease-in-out;
 
   &_wrapper {
-    background: var.$lightest_color;
+    background: var.$neutral_color_100;
     box-shadow: 0 0 5px 1px #0005;
     width: 100%;
     padding: 1em 2em;
+    z-index: 99;
 
     position: fixed;
     left: 0;
