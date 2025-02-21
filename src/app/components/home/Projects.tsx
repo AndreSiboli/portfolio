@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { projects } from "@/datas/projects";
 import {
   sortByDateASC,
@@ -16,6 +16,7 @@ import Sort from "../buttons/Sort";
 
 import { ProjectsType } from "@/_types/projectsType";
 import SimpleButton from "../buttons/SimpleButton";
+import Filter from "../buttons/Filter";
 
 export default function Projects() {
   const [items, setItems] = useState(projects.slice(0, 8));
@@ -23,15 +24,32 @@ export default function Projects() {
 
   function sortArray(arr: ProjectsType[], value: string) {
     if (value === "na") return sortByNameASC(arr);
-    else if (value === "nd") return sortByNameDESC(arr);
-    else if (value === "da") return sortByDateASC(arr);
-    else if (value === "dd") return sortByDateDESC(arr);
+    if (value === "nd") return sortByNameDESC(arr);
+    if (value === "da") return sortByDateASC(arr);
+    if (value === "dd") return sortByDateDESC(arr);
+    return projects;
   }
 
   function sortProjects(value: string) {
-    let arr = sortArray(items, value) || projects;
+    let sortedProjects = sortArray(items, value);
+    setItems([...sortedProjects]);
     setSort(value);
-    setItems(arr);
+    console.log(sortedProjects);
+  }
+
+  function filteredByType(
+    filter: {
+      name: string;
+      value: string;
+      selected: boolean;
+    }[]
+  ) {
+    const onlyCheckeds = filter.filter((f) => f.selected).map((f) => f.value);
+    const filteredProjects = projects.filter((item) =>
+      item.tags.some((tag) => onlyCheckeds.includes(tag))
+    );
+
+    setItems(filteredProjects);
   }
 
   function seeMore() {
@@ -51,6 +69,7 @@ export default function Projects() {
           <div className={styles.projects_wrapper}>
             <div className={styles.projects_manager}>
               <Sort sort={sort} handleValue={sortProjects} />
+              <Filter handleValue={filteredByType} />
             </div>
             <div className={styles.projects_carousel}>
               {items.map((item) => (

@@ -1,0 +1,19 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.media {
+  display: flex;
+  gap: 1.5em;
+
+  svg {
+    color: var.$brand_color;
+    font-size: 1.5em;
+    transition: color 0.25s ease-in-out;
+
+    @include mix.OnlyPc {
+      &:hover {
+        color: var.$brand_color_700;
+      }
+    }
+  }
+}

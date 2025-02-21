@@ -17,7 +17,7 @@ import modaFull from "@/assets/full/moda.png";
 
 export const projects: ProjectsType[] = [
   {
-    id: "A7B8I9",
+    id: "CA21PD",
     name: "Planilhas",
     links: {
       github: "https://github.com/AndreSiboli/Excel",

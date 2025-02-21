@@ -1,7 +1,7 @@
 @use "@/styles/_dirs/variables" as var;
 @use "@/styles/_dirs/mixins" as mix;
 
-.sort {
+.filter {
   position: relative;
   z-index: 5;
 
@@ -31,14 +31,20 @@
   &_options {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 0.5em;
     width: fit-content;
     padding: 2em 1.5em;
 
+
     .option {
-      input {
-        display: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      input{
+        width: 18px;
+        aspect-ratio: 1/1;
+        cursor: pointer;
       }
 
       label {
@@ -46,16 +52,16 @@
         white-space: nowrap;
       }
 
-      &.selected {
+      &:not(.selected) {
         label {
-          text-decoration: underline;
+          color: var.$neutral_color_600;
         }
       }
     }
   }
 
   &.opened {
-    .sort_container {
+    .filter_container {
       display: block;
     }
   }

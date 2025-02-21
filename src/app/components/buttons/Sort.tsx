@@ -1,5 +1,6 @@
 import styles from "@/styles/buttons/Sort.module.scss";
-import { useState } from "react";
+import { closeWhenClickedOutsideTheElement } from "@/utils/closeManager";
+import { useEffect, useRef, useState } from "react";
 import { PiPlus } from "react-icons/pi";
 
 interface PropsType {
@@ -9,6 +10,7 @@ interface PropsType {
 
 export default function Sort(props: PropsType) {
   const { sort, handleValue } = props;
+  const sortRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const options = [
@@ -17,6 +19,10 @@ export default function Sort(props: PropsType) {
     { name: "By name (ASC)", value: "na" },
     { name: "By name (DESC)", value: "nd" },
   ];
+
+  useEffect(() => {
+    closeWhenClickedOutsideTheElement(sortRef, setIsOpen);
+  }, []);
 
   function defineIsOpen() {
     setIsOpen((prevState) => !prevState);
@@ -28,7 +34,7 @@ export default function Sort(props: PropsType) {
   }
 
   return (
-    <div className={`${styles.sort} ${isOpen && styles.opened}`}>
+    <div className={`${styles.sort} ${isOpen && styles.opened}`} ref={sortRef}>
       <div className={styles.sort_title} onClick={defineIsOpen}>
         <p>Sort</p>
         <PiPlus />
