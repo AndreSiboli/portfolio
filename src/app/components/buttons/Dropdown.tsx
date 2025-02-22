@@ -1,9 +1,10 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import styles from "@/styles/buttons/Dropdown.module.scss";
 
 import { FaAngleDown } from "react-icons/fa6";
+import { closeWhenClickedOutsideTheElement } from "@/utils/closeManager";
 
 interface PropsType {
   data: {
@@ -16,13 +17,16 @@ interface PropsType {
 export default function Dropdown(props: PropsType) {
   const { data } = props;
   const [isActive, setIsActive] = useState(false);
+  const dropRef = useRef<HTMLDivElement>(null)
 
   function defineIsActive() {
     setIsActive((prevState) => !prevState);
   }
 
+  useEffect(()=> {closeWhenClickedOutsideTheElement(dropRef, setIsActive)},[])
+
   return (
-    <div className={`${styles.dropdown} ${isActive && styles.active}`}>
+    <div className={`${styles.dropdown} ${isActive && styles.active}`} ref={dropRef}>
       <div className={styles.dropdown_info} onClick={() => defineIsActive()}>
         <div className={styles.info_wrapper}>
           <div className={styles.info_icon}>{data.icon}</div>

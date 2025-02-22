@@ -34,7 +34,6 @@ export default function Projects() {
     let sortedProjects = sortArray(items, value);
     setItems([...sortedProjects]);
     setSort(value);
-    console.log(sortedProjects);
   }
 
   function filteredByType(
@@ -50,6 +49,7 @@ export default function Projects() {
     );
 
     setItems(filteredProjects);
+    // setItems(sortArray(filteredProjects, sort)); //Solving this bug
   }
 
   function seeMore() {
@@ -71,7 +71,7 @@ export default function Projects() {
               <Sort sort={sort} handleValue={sortProjects} />
               <Filter handleValue={filteredByType} />
             </div>
-            <div className={styles.projects_carousel}>
+            <div className={styles.projects_grid}>
               {items.map((item) => (
                 <ProjectItem data={item} key={item.id} />
               ))}
