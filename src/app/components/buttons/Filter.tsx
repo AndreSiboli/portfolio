@@ -1,28 +1,21 @@
 import styles from "@/styles/buttons/Filter.module.scss";
 import { closeWhenClickedOutsideTheElement } from "@/utils/closeManager";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { PiMagnifyingGlass } from "react-icons/pi";
 
+type value = {
+  name: string;
+  value: string;
+  selected: boolean;
+};
 interface PropsType {
-  handleValue: (
-    str: {
-      name: string;
-      value: string;
-      selected: boolean;
-    }[]
-  ) => void;
+  state: { filter: value[]; setFilter: Dispatch<SetStateAction<value[]>> };
 }
 
 export default function Filter(props: PropsType) {
-  const { handleValue } = props;
+  const { state } = props;
   const filterRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [checkboxs, setCheckbox] = useState([
-    { name: "Select All", value: "DISREGARD", selected: true },
-    { name: "API", value: "API", selected: true },
-    { name: "Excel", value: "Excel", selected: true },
-    { name: "Website", value: "Website", selected: true },
-  ]);
 
   useEffect(() => {
     closeWhenClickedOutsideTheElement(filterRef, setIsOpen);
@@ -33,7 +26,7 @@ export default function Filter(props: PropsType) {
   }
 
   function isSelected(value: string) {
-    let selectors = [...checkboxs];
+    let selectors = [...state.filter];
 
     if (value !== "DISREGARD") {
       //Set true/false the clicked one
@@ -55,7 +48,7 @@ export default function Filter(props: PropsType) {
           : box
       );
 
-      return setCheckbox(selectors);
+      return state.setFilter(selectors);
     }
 
     //if all of them are true
@@ -73,16 +66,12 @@ export default function Filter(props: PropsType) {
           }
     );
 
-    setCheckbox(selectors);
+    state.setFilter(selectors);
   }
 
   function onChange(value: string) {
     isSelected(value);
   }
-
-  useEffect(() => {
-    handleValue(checkboxs);
-  }, [checkboxs]);
 
   return (
     <div
@@ -95,7 +84,7 @@ export default function Filter(props: PropsType) {
       </div>
       <div className={styles.filter_container}>
         <div className={styles.filter_options}>
-          {checkboxs.map((option) => (
+          {state.filter.map((option) => (
             <div
               className={`${styles.option} ${
                 option.selected && styles.selected

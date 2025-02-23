@@ -3,9 +3,10 @@ import { closeWhenClickedOutsideTheElement } from "@/utils/closeManager";
 import { useEffect, useRef, useState } from "react";
 import { PiPlus } from "react-icons/pi";
 
+type SortType = "da" | "dd" | "na" | "nd";
 interface PropsType {
-  sort: string;
-  handleValue: (str: string) => void;
+  sort: SortType;
+  handleValue: (str: SortType) => void;
 }
 
 export default function Sort(props: PropsType) {
@@ -28,7 +29,7 @@ export default function Sort(props: PropsType) {
     setIsOpen((prevState) => !prevState);
   }
 
-  function onChange(value: string) {
+  function onChange(value: SortType) {
     handleValue(value);
     setIsOpen(false);
   }
@@ -53,7 +54,7 @@ export default function Sort(props: PropsType) {
                 id={option.value}
                 name="sort"
                 defaultChecked={option.default}
-                onChange={() => onChange(option.value)}
+                onChange={() => onChange(option.value as SortType)}
               />
               <label htmlFor={option.value}>{option.name}</label>
             </div>
