@@ -1,7 +1,7 @@
 import { Dispatch, RefObject, SetStateAction } from "react";
 
 export function closeWhenClickedOutsideTheElement(
-  ref: RefObject<HTMLDivElement>,
+  ref: RefObject<HTMLDivElement | null>,
   closeFunction: Dispatch<SetStateAction<boolean>>
 ) {
   function handleClickOutside(e: MouseEvent) {

@@ -13,7 +13,7 @@ export default function Dataset(props: PropsType) {
   const [number, setNumber] = useState(0);
   const [init, setInit] = useState(false);
   const datasetRef = useRef<HTMLDivElement>(null);
-  const timeout = useRef<NodeJS.Timeout>();
+  const timeout = useRef<NodeJS.Timeout>(undefined);
 
   useEffect(() => {
     animation();
