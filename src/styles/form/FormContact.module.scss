@@ -7,6 +7,13 @@
   max-width: 500px;
   width: 100%;
 
+  box-shadow: 0 0 2px 2px #0001;
+  border-radius: .5em;
+  padding: 2em;
+
+
+
+
   &_input {
     display: flex;
     flex-direction: column;

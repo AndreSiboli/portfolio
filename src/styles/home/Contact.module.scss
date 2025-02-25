@@ -31,10 +31,19 @@
     flex-direction: column;
     gap: 2em;
 
+    @media (max-width: 1024px) {
+      margin-top: 0;
+    }
+
     .info_header {
       display: flex;
       flex-direction: column;
       gap: 0.5em;
+
+      h2 {
+        font-size: calc(1.5em + 2vw);
+        color: var.$brand_color_500;
+      }
 
       p {
         color: var.$neutral_color_700;
@@ -53,14 +62,16 @@
       .info_data {
         display: flex;
         flex-direction: column;
-        gap: 0.5em;
+        gap: 0.25em;
+        box-shadow: 0 0 2px 2px #0001;
+        border-radius: 0.5em;
+        padding: 1em;
 
         .data_type {
           display: flex;
           align-items: center;
           gap: 0.5em;
           font-weight: bold;
-          color: var.$brand_color_500;
 
           svg {
             font-size: 1.5em;
@@ -68,6 +79,7 @@
         }
         .data_data {
           padding: 0;
+          color: var.$brand_color_500;
         }
       }
     }

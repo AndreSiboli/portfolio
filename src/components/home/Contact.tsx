@@ -25,31 +25,14 @@ export default function Contact() {
       data: "(+55) 11 98247-4477",
     },
   ];
-  const social = [
-    {
-      icon: <PiLinkedinLogo />,
-      to: "https://www.linkedin.com/in/andr%C3%A9-siboli-81b969244/",
-      label: "Linkedin",
-    },
-    {
-      icon: <PiGithubLogo />,
-      to: "https://www.github.com/AndreSiboli",
-      label: "Github",
-    },
-    {
-      icon: <PiInstagramLogo />,
-      to: "https://www.instagram.com/andresiboli",
-      label: "Instagram",
-    },
-  ];
 
   return (
     <section className={styles.contact} id="contact">
       <Container>
         <div className={styles.contact_container}>
-          <div className={styles.contact_title}>
+          {/* <div className={styles.contact_title}>
             <h1>Contact</h1>
-          </div>
+          </div> */}
 
           <div className={styles.contact_wrapper}>
             <div className={styles.contact_info}>
@@ -66,19 +49,6 @@ export default function Contact() {
                     </span>
                     <span className={styles.data_data}>{data.data}</span>
                   </div>
-                ))}
-              </div>
-
-              <div className={styles.info_social}>
-                {social.map((s) => (
-                  <Link
-                    href={s.to}
-                    aria-label={s.label}
-                    target="_blank"
-                    key={s.to}
-                  >
-                    {s.icon}
-                  </Link>
                 ))}
               </div>
             </div>

@@ -11,7 +11,7 @@ interface PropsType {
   id: string;
   name: string;
   label: string;
-  reference: RefObject<HTMLTextAreaElement>;
+  reference: RefObject<HTMLTextAreaElement | null>;
 }
 
 export default function Textarea(props: PropsType) {

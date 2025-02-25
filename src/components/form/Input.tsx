@@ -14,7 +14,7 @@ interface PropsType {
   name: string;
   type: string;
   label: string;
-  reference: RefObject<HTMLInputElement>;
+  reference: RefObject<HTMLInputElement | null>;
 }
 
 export default function Input(props: PropsType) {
