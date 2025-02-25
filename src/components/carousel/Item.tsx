@@ -2,8 +2,7 @@ import { CSSProperties } from "react";
 import { StaticImageData } from "next/image";
 import styles from "@/styles/carousel/Item.module.scss";
 
-import Image from "next/image";
-import LinkButton from "@/app/components/links/LinkButton";
+import LinkButton from "@/components/links/LinkButton";
 
 import { PiArrowRight } from "react-icons/pi";
 import Img from "../utils/Img";

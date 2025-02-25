@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Container from "./components/layout/Container";
+import Container from "@/components/layout/Container";
 import styles from "./not-found.module.scss";
 
 export default function Error404() {

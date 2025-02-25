@@ -34,7 +34,7 @@
       svg {
         display: block;
         font-size: 1.5em;
-        color: var.$brand_color;
+        color: var.$brand_color_500;
       }
     }
 
@@ -42,7 +42,7 @@
       svg {
         display: block;
         font-size: 1.25em;
-        color: var.$brand_color;
+        color: var.$brand_color_500;
         transition: transform 0.15s ease-in-out;
       }
     }
@@ -82,7 +82,7 @@
         height: 8px;
 
         &_percent {
-          background: var.$brand_color;
+          background: var.$brand_color_500;
           border-radius: 0.5em;
           height: 100%;
         }

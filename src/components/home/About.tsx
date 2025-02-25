@@ -1,8 +1,8 @@
 import styles from "@/styles/home/About.module.scss";
 
-import Container from "@/app/components/layout/Container";
-import LinkButton from "@/app/components/links/LinkButton";
-import Dataset from "@/app/components/layout/Dataset";
+import Container from "@/components/layout/Container";
+import LinkButton from "@/components/links/LinkButton";
+import Dataset from "@/components/layout/Dataset";
 
 import { PiDownloadSimple } from "react-icons/pi";
 import { projects } from "@/datas/projects";

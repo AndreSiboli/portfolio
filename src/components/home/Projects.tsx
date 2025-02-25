@@ -11,7 +11,7 @@ import {
 } from "@/utils/projectManager";
 import styles from "@/styles/home/Projects.module.scss";
 
-import Container from "@/app/components/layout/Container";
+import Container from "@/components/layout/Container";
 import ProjectItem from "../layout/ProjectsItem";
 import Sort from "../buttons/Sort";
 import Filter from "../buttons/Filter";

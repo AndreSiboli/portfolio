@@ -74,7 +74,7 @@
     }
 
     .info_type {
-      color: var.$brand_color;
+      color: var.$brand_color_500;
       font-weight: bold;
     }
 
@@ -85,7 +85,7 @@
 
   &_description {
     height: 100%;
-    
+
     p {
       color: var.$neutral_color_700;
       line-height: 1.6em;

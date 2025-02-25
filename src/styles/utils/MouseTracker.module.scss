@@ -1,0 +1,39 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.mouse_tracker {
+  display: none;
+
+  @include mix.OnlyPc {
+    display: block;
+    position: fixed;
+    width: 35px;
+    aspect-ratio: 1/1;
+    border: 2px dashed var.$neutral_color_900;
+    border-radius: 50%;
+    z-index: 999;
+    animation: 6s linear infinite spin;
+    pointer-events: none;
+    transition: width 0.15s ease-in-out, opacity 0.25s ease-in-out;
+
+    &.inside {
+      border-color: var.$brand_color_500;
+      width: 50px;
+    }
+
+    &.faster {
+      animation: 3s linear infinite spin;
+      width: 50px;
+    }
+
+    &.disappear {
+      opacity: 0;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

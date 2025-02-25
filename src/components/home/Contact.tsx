@@ -1,7 +1,7 @@
 import styles from "@/styles/home/Contact.module.scss";
 
-import Container from "@/app/components/layout/Container";
-import FormContact from "@/app/components/form/FormContact";
+import Container from "@/components/layout/Container";
+import FormContact from "@/components/form/FormContact";
 import Link from "next/link";
 
 import {

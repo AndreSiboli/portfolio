@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import styles from "@/styles/Navbar/Index.module.scss";
 
-import Container from "@/app/components/layout/Container";
-import Logo from "@/app/components/layout/Logo";
+import Container from "@/components/layout/Container";
+import Logo from "@/components/layout/Logo";
 import Link from "next/link";
 
 import { PiGithubLogo } from "react-icons/pi";

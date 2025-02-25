@@ -5,9 +5,9 @@ import { sendEmail } from "@/services/contact";
 import { checkEmail, checkName, checkSubject } from "@/utils/formManager";
 import styles from "@/styles/form/FormContact.module.scss";
 
-import Input from "@/app/components/form/Input";
-import Submit from "@/app/components/form/Submit";
-import Textarea from "@/app/components/form/Textarea";
+import Input from "@/components/form/Input";
+import Submit from "@/components/form/Submit";
+import Textarea from "@/components/form/Textarea";
 
 import { VscSend } from "react-icons/vsc";
 

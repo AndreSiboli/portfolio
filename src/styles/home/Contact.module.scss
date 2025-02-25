@@ -60,7 +60,7 @@
           align-items: center;
           gap: 0.5em;
           font-weight: bold;
-          color: var.$brand_color;
+          color: var.$brand_color_500;
 
           svg {
             font-size: 1.5em;
@@ -90,7 +90,7 @@
         @include mix.OnlyPc {
           &:hover {
             svg {
-              color: var.$brand_color;
+              color: var.$brand_color_500;
             }
           }
         }

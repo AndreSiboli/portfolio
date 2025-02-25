@@ -1,7 +1,7 @@
-import "./globals.scss";
+import "@/styles/globals.scss";
 import { Nunito } from "next/font/google";
 
-import MainContainer from "@/app/components/layout/MainContainer";
+import MainContainer from "@/components/layout/MainContainer";
 
 const poppins = Nunito({
   subsets: ["latin"],

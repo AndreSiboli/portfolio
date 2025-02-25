@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 
-import Navbar from "@/app/components/Navbar/Index";
-import Menu from "@/app/components/Navbar/Menu";
-import Footer from "@/app/components/layout/Footer";
+import Navbar from "@/components/Navbar/Index";
+import Menu from "@/components/Navbar/Menu";
+import Footer from "@/components/layout/Footer";
+import MouseTracker from "../utils/MouseTracker";
 
 export default function MainContainer({ children }: { children: ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export default function MainContainer({ children }: { children: ReactNode }) {
       {children}
       <Footer/>
       <Menu />
+      <MouseTracker/>
     </div>
   );
 }

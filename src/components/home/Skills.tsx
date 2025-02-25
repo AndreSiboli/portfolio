@@ -1,7 +1,7 @@
 import styles from "@/styles/home/Skills.module.scss";
 
-import Container from "@/app/components/layout/Container";
-import Dropdown from "@/app/components/buttons/Dropdown";
+import Container from "@/components/layout/Container";
+import Dropdown from "@/components/buttons/Dropdown";
 
 import {
   PiCode,

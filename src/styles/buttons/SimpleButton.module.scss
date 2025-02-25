@@ -3,8 +3,18 @@
 
 .button {
   background: none;
-  text-decoration: underline;
   border: none;
   cursor: pointer;
   font-size: 0.95em;
+  position: relative;
+
+  &:after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: var.$neutral_color_900;
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+  }
 }

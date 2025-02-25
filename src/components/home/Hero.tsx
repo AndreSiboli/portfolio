@@ -1,9 +1,9 @@
 import styles from "@/styles/home/Hero.module.scss";
 
 import Link from "next/link";
-import Container from "@/app/components/layout/Container";
-import LinkButton from "@/app/components/links/LinkButton";
-import Img from "@/app/components/utils/Img";
+import Container from "@/components/layout/Container";
+import LinkButton from "@/components/links/LinkButton";
+import Img from "@/components/utils/Img";
 
 import HeroImage from "@/assets/me.jpg";
 import {
