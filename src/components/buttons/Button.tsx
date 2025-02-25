@@ -1,25 +1,24 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 import styles from "@/styles/buttons/Button.module.scss";
-import { Poppins } from "next/font/google";
+import { Nunito } from "next/font/google";
 
-const poppins = Poppins({
+const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-interface PropsType {
+interface PropsType extends ComponentProps<"button"> {
   children: ReactNode;
-  handleFunction: () => void;
-  effect?: boolean;
+  variant?: "v1" | "v2";
 }
 
 export default function Button(props: PropsType) {
-  const { children, handleFunction, effect = false } = props;
+  const { children, variant = "v1" } = props;
 
   return (
     <button
-      className={`${styles.button} ${effect && styles.effect} ${poppins.className}`}
-      onClick={handleFunction}
+      {...props}
+      className={`${styles.button} ${styles[variant]} ${nunito.className}`}
     >
       {children}
     </button>

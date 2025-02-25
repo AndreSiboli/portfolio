@@ -3,11 +3,10 @@
 
 .project {
   border-radius: 0.5em;
-  box-shadow: 0 0 6px 2px #0004;
+  box-shadow: 0 0 2px 2px #0002;
   background: var.$neutral_color_100;
   padding: 0.5em;
   cursor: pointer;
-  max-width: 500px;
 
   &_image {
     position: relative;

@@ -1,9 +1,9 @@
 import styles from "@/styles/form/Submit.module.scss";
 import { MouseEvent, ReactNode } from "react";
-import { Poppins } from "next/font/google";
+import { Nunito } from "next/font/google";
 import Loading from "../utils/Loading";
 
-const poppins = Poppins({
+const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -25,7 +25,7 @@ export default function Submit(props: PropsType) {
   return (
     <button
       onClick={(e) => submit(e)}
-      className={`${poppins.className} ${styles.button} ${
+      className={`${nunito.className} ${styles.button} ${
         typeof text === "string" ? styles.text : styles.node
       }`}
     >

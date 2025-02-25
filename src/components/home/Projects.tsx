@@ -16,6 +16,7 @@ import ProjectItem from "../layout/ProjectsItem";
 import Sort from "../buttons/Sort";
 import Filter from "../buttons/Filter";
 import SimpleButton from "../buttons/SimpleButton";
+import Button from "../buttons/Button";
 
 type SortType = "da" | "dd" | "na" | "nd";
 
@@ -103,7 +104,7 @@ export default function Projects() {
             </div>
             <div className={styles.projects_button}>
               {!checkIfAllLimitedProjectedAreShowed() ? (
-                <SimpleButton text="See more" handleFunction={seeMoreProjects} />
+                <Button onClick={seeMoreProjects} variant="v1">Load more</Button>
               ) : (
                 <p>You&apos;ve seen all the projects</p>
               )}

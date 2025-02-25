@@ -3,7 +3,7 @@ import { Nunito } from "next/font/google";
 
 import MainContainer from "@/components/layout/MainContainer";
 
-const poppins = Nunito({
+const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={nunito.className}>
         <MainContainer>{children}</MainContainer>
       </body>
     </html>
