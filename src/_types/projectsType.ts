@@ -18,7 +18,7 @@ export interface ProjectsType {
   id: string;
   name: string;
   links: { github: string; website?: string };
-  src: { thumbnail: StaticImageData; fullView: StaticImageData };
+  src: { thumbnail: StaticImageData };
   tags: string[];
   description: string;
   postedAt: string;

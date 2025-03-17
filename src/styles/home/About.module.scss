@@ -30,6 +30,10 @@
   &_description {
     p {
       text-align: center;
+
+      a {
+        color: var.$brand_color_500;
+      }
     }
   }
 

@@ -6,6 +6,7 @@ import Dataset from "@/components/layout/Dataset";
 
 import { PiDownloadSimple } from "react-icons/pi";
 import { projects } from "@/datas/projects";
+import Link from "next/link";
 
 export default function About() {
   const dataset = [
@@ -26,7 +27,7 @@ export default function About() {
             <div className={styles.about_description}>
               <p>
                 What&apos;s up? My name is André Siboli. I was born and live in
-                Brazil. I graduated in Information Technology from Universidade
+                Brazil. I <Link href='./diploma.pdf' target="_blank" download>graduated</Link> in Information Technology from Universidade
                 Cruzeiro do Sul. I&apos;ve always been interested in programming
                 since I was a child. I love this world and how a simple line of
                 code can change lives. For me, web development is a blend of art
@@ -50,7 +51,7 @@ export default function About() {
                   </>
                 }
                 target="_blank"
-                download="siboli-cv"
+                download
               />
             </div>
           </div>
