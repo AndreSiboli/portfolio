@@ -12,8 +12,23 @@ import moda from "@/assets/projects/moda.jpg";
 import valorant from "@/assets/projects/valorant.jpg";
 import excel from "@/assets/projects/excel.jpg";
 import charlotte from "@/assets/projects/charlotte.jpg";
+import frame from "@/assets/projects/frame.jpg";
 
 export const projects: ProjectsType[] = [
+  {
+    id: "E97UI8",
+    name: "Frame",
+    links: {
+      github: "https://github.com/AndreSiboli/frame",
+      website: "https://frame-delta-five.vercel.app/",
+    },
+    src: { thumbnail: frame },
+    tags: ["Website"],
+    description:
+      "This website was created to experiment with scroll animations and theme modes. It is intended for testing purposes only and is not a live or official site.",
+    postedAt: "2025/04/14",
+    technologies: ["Next.js", "Typescript", "Sass", "React"],
+  },
   {
     id: "F7F2D9",
     name: "Photographer",
