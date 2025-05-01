@@ -16,6 +16,20 @@ import frame from "@/assets/projects/frame.jpg";
 
 export const projects: ProjectsType[] = [
   {
+    id: "A4C2C5",
+    name: "Moda",
+    links: {
+      website: "https://moda-eosin.vercel.app",
+      github: "https://github.com/AndreSiboli/moda",
+    },
+    src: { thumbnail: moda },
+    tags: ["Website"],
+    description:
+      "Moda is a website built with Next.js, with a strong emphasis on design. As I am relatively new to the design field, I drew inspiration from various references to achieve the desired outcome. It has passed to a redesign phase, and I am currently working on it.",
+    postedAt: "2025/05/01",
+    technologies: ["Next.js", "Typescript", "Sass", "React", "Redux"],
+  },
+  {
     id: "E97UI8",
     name: "Frame",
     links: {
@@ -69,20 +83,6 @@ export const projects: ProjectsType[] = [
       "I've tried to make a website that uses Redux, API requests, and some animations. I'm using a fan-made API for Valorant. This project is still in development. (I've never played Valorant before.)",
     postedAt: "2025/01/24",
     technologies: ["Next.js", "Typescript", "Sass", "React", "Redux", "Axios"],
-  },
-  {
-    id: "A4C2C5",
-    name: "Moda",
-    links: {
-      website: "https://moda-eosin.vercel.app",
-      github: "https://github.com/AndreSiboli/moda",
-    },
-    src: { thumbnail: moda },
-    tags: ["Website"],
-    description:
-      "Moda is a website built with Next.js, with a strong emphasis on design. As I am relatively new to the design field, I drew inspiration from various references to achieve the desired outcome.",
-    postedAt: "2024/09/20",
-    technologies: ["Next.js", "Typescript", "Sass", "React", "Redux"],
   },
   {
     id: "A1B2C3",
