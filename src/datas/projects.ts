@@ -13,8 +13,23 @@ import valorant from "@/assets/projects/valorant.jpg";
 import excel from "@/assets/projects/excel.jpg";
 import charlotte from "@/assets/projects/charlotte.jpg";
 import frame from "@/assets/projects/frame.jpg";
+import alter from "@/assets/projects/alter-ego.png";
 
 export const projects: ProjectsType[] = [
+  {
+    id: "F907EA",
+    name: "Alter ego",
+    links: {
+      website: "https://alter-ego-eight.vercel.app/",
+      github: "https://github.com/AndreSiboli/alter-ego",
+    },
+    src: { thumbnail: alter },
+    tags: ["Website"],
+    description:
+      "This website was created to training my abilities with gsap and lenis. It's not an informative website. If you're interested in the topic, feel free to do your own research.",
+    postedAt: "2025/06/04",
+    technologies: ["Next.js", "Typescript", "Sass", "React"],
+  },
   {
     id: "A4C2C5",
     name: "Moda",
