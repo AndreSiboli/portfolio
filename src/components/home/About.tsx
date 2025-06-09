@@ -27,12 +27,16 @@ export default function About() {
             <div className={styles.about_description}>
               <p>
                 What&apos;s up? My name is André Siboli. I was born and live in
-                Brazil. I <Link href='./diploma.pdf' target="_blank" download>graduated</Link> in Information Technology from Universidade
-                Cruzeiro do Sul. I&apos;ve always been interested in programming
-                since I was a child. I love this world and how a simple line of
-                code can change lives. For me, web development is a blend of art
-                and technology, where every line of code is a stroke on the
-                canvas of the digital world.
+                Brazil. I{" "}
+                <Link href="./diploma.pdf" target="_blank" download>
+                  graduated
+                </Link>{" "}
+                in Information Technology from Universidade Cruzeiro do Sul.
+                I&apos;ve always been interested in programming since I was a
+                child. I love this world and how a simple line of code can
+                change lives. For me, web development is a blend of art and
+                technology, where every line of code is a stroke on the canvas
+                of the digital world.
               </p>
             </div>
 
@@ -43,16 +47,9 @@ export default function About() {
             </div>
 
             <div className={styles.about_button}>
-              <LinkButton
-                to="./siboli-cv.pdf"
-                text={
-                  <>
-                    Download CV <PiDownloadSimple />
-                  </>
-                }
-                target="_blank"
-                download
-              />
+              <LinkButton href="./siboli-cv.pdf" target="_blank" hasSvg download>
+                Download CV <PiDownloadSimple />
+              </LinkButton>
             </div>
           </div>
         </div>

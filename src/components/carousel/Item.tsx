@@ -9,7 +9,7 @@ import Img from "../utils/Img";
 
 interface PropsType {
   data: {
-    src: StaticImageData | string;
+    src: StaticImageData;
     name: string;
     link: string;
     type: string;
@@ -27,7 +27,7 @@ export default function Item(props: PropsType) {
     <div className={styles.item} style={style}>
       <div className={styles.item_wrapper}>
         <div className={styles.item_image}>
-          <Img src={data.src} alt="" />
+          <Img src={data.src}/>
         </div>
         <div className={styles.item_container}>
           <div className={styles.item_header}>
@@ -41,15 +41,9 @@ export default function Item(props: PropsType) {
             <p>{data.description}</p>
           </div>
           <div className={styles.item_button}>
-            <LinkButton
-              to={data.link}
-              text={
-                <>
-                  Demo <PiArrowRight />
-                </>
-              }
-              target="_blank"
-            />
+            <LinkButton href={data.link} target="_blank">
+              Demo <PiArrowRight />
+            </LinkButton>
           </div>
         </div>
       </div>

@@ -60,7 +60,7 @@ export default function Card(props: PropsType) {
             <div className={styles.info_middle}>
               <div>
                 {data.tags.map((tag) => (
-                  <Tag text={tag} category={tag.toLowerCase()} key={tag}/>
+                  <Tag text={tag} category={tag.toLowerCase()} key={tag} />
                 ))}
               </div>
               <time dateTime={new Date(data.postedAt).toISOString()}>
@@ -80,27 +80,19 @@ export default function Card(props: PropsType) {
 
             <div className={styles.info_buttons}>
               {data.links.website && (
-                <LinkButton
-                  text={
-                    <>
-                      Website <IoIosLaptop />
-                    </>
-                  }
-                  to={data.links.website}
-                  target="_blank"
-                />
+                <LinkButton href={data.links.website} target="_blank" hasSvg>
+                  Website <IoIosLaptop />
+                </LinkButton>
               )}
 
               <LinkButton
                 style={{ background: "#000" }}
-                text={
-                  <>
-                    Github <PiGithubLogo />
-                  </>
-                }
-                to={data.links.github}
+                href={data.links.github}
                 target="_blank"
-              />
+                hasSvg
+              >
+                Github <PiGithubLogo />
+              </LinkButton>
             </div>
           </section>
         </div>

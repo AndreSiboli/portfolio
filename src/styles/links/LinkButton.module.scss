@@ -16,7 +16,7 @@
 
     @include mix.OnlyPc {
       &:hover {
-        background: var.$brand_color_700;
+        background: var.$brand_color_600;
       }
     }
   }

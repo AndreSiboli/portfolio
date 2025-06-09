@@ -1,0 +1,68 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.hero_image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+
+  .image_wrapper {
+    max-width: 300px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    position: relative;
+
+    .image_star {
+      position: absolute;
+      z-index: 3;
+      animation: 1.5s ease-in-out infinite alternate-reverse starMoving;
+
+      &:nth-child(1) {
+        top: 16px;
+        left: -8px;
+        scale: 0.9;
+      }
+
+      &:nth-child(2) {
+        top: 20%;
+        right: 0;
+        animation-delay: 0.16s;
+        scale: 0.8;
+      }
+
+      &:nth-child(3) {
+        bottom: 16px;
+        left: 16px;
+        animation-delay: 0.32s;
+        scale: 0.75;
+      }
+
+      &:nth-child(4) {
+        bottom: 8px;
+        right: 16px;
+        animation-delay: 0.64s;
+      }
+
+      svg {
+        color: var.$brand_color_500;
+      }
+
+      @keyframes starMoving {
+        to {
+          transform: translate(0, 16px);
+        }
+      }
+    }
+  }
+
+  &_container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+      border-radius: 46% 54% 60% 40% / 37% 50% 50% 63%;
+    }
+  }
+}

@@ -1,22 +1,21 @@
-import Image, { StaticImageData } from "next/image";
-import { CSSProperties } from "react";
+import Image, { ImageProps, StaticImageData } from "next/image";
 
-interface PropsType {
-  src: string | StaticImageData;
+interface PropsType extends Omit<ImageProps, "src" | "alt"> {
+  src: StaticImageData;
   alt?: string;
-  style?: CSSProperties;
 }
 
 export default function Img(props: PropsType) {
-  const { src, alt = "", style = {} } = props;
+  const { src, alt, style, ...rest } = props;
 
   return (
     <Image
-      src={src}
-      alt={alt}
       fill
-      sizes="100vw"
+      {...rest}
+      src={src}
+      alt={alt || ""}
       style={{ objectFit: "cover", ...style }}
+      sizes="100vw"
     />
   );
 }

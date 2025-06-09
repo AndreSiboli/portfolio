@@ -1,27 +1,26 @@
 import styles from "@/styles/links/LinkButton.module.scss";
 
 import Link from "next/link";
-import { ComponentProps, CSSProperties, ReactNode } from "react";
+import { ComponentProps } from "react";
 
 interface PropsType extends ComponentProps<"a"> {
-  text: string | ReactNode;
-  to: string;
-  style?: CSSProperties;
+  href: string;
+  hasSvg?: boolean;
 }
 
 export default function LinkButton(props: PropsType) {
-  const { text, to, style } = props;
+  const { hasSvg=false, href, style, children, ...rest } = props;
 
   return (
     <Link
-      {...props}
-      href={to}
+      {...rest}
+      href={href}
       className={`${styles.link} ${
-        typeof text === "string" ? styles.text : styles.node
+        !hasSvg ? styles.text : styles.node
       }`}
       style={style}
     >
-      {text}
+      {children}
     </Link>
   );
 }
