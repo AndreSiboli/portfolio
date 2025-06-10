@@ -9,16 +9,13 @@ interface PropsType extends ComponentProps<"a"> {
 }
 
 export default function LinkButton(props: PropsType) {
-  const { hasSvg=false, href, style, children, ...rest } = props;
+  const { hasSvg = false, href, children, ...rest } = props;
 
   return (
     <Link
       {...rest}
       href={href}
-      className={`${styles.link} ${
-        !hasSvg ? styles.text : styles.node
-      }`}
-      style={style}
+      className={`${styles.link} ${!hasSvg ? styles.text : styles.node}`}
     >
       {children}
     </Link>

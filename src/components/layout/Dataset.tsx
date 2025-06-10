@@ -2,75 +2,58 @@
 
 import styles from "@/styles/layout/Dataset.module.scss";
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 interface PropsType {
   data: { num: number; name: string };
   timer: number;
 }
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Dataset(props: PropsType) {
   const { data, timer } = props;
   const [number, setNumber] = useState(0);
-  const [init, setInit] = useState(false);
   const datasetRef = useRef<HTMLDivElement>(null);
-  const timeout = useRef<NodeJS.Timeout>(undefined);
+  const counterRef = useRef(0);
+  const timerIdRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
-    animation();
-  }, []);
-
-  useEffect(() => {
-    if (!init) return;
-
-    if (number === data.num) {
-      setInit(false);
-      clearTimeout(timeout.current);
-      return;
-    }
-    timerFunction();
-
-    return () => {
-      clearTimeout(timeout.current);
-    };
-  }, [init, number]);
-
-  function timerFunction() {
-    timeout.current = setTimeout(() => {
-      setNumber((prevState) => prevState + 1);
-    }, timer);
-  }
-
-  function animation() {
     if (!datasetRef.current) return;
 
-    const callback: IntersectionObserverCallback = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!datasetRef.current) return;
-        if (entry.isIntersecting) {
-          setInit(true);
-          observer.unobserve(datasetRef.current);
-        }
-      });
-    };
+    ScrollTrigger.create({
+      trigger: datasetRef.current,
+      start: "top bottom",
+      once: true,
+      onEnter: () => {
+        counterRef.current = 0;
+        setNumber(0);
+        animateStep();
+      },
+    });
 
-    const options: IntersectionObserverInit = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1,
+    return () => {
+      timerIdRef.current?.kill();
     };
+  }, [data.num, timer]);
 
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(datasetRef.current);
+  function animateStep() {
+    counterRef.current += 1;
+    setNumber(counterRef.current);
+
+    if (counterRef.current < data.num) {
+      timerIdRef.current = gsap.delayedCall(timer, animateStep);
+    }
   }
 
-  function format(num: number) {
-    if (num <= 9) return `0${num}`;
-    return `${num}`;
+  function formatNumber(num: number) {
+    return num <= 9 ? `0${num}` : `${num}`;
   }
 
   return (
     <div className={styles.dataset} ref={datasetRef}>
-      <span className={styles.dataset_number}>{format(number)}+</span>
+      <span className={styles.dataset_number}>{formatNumber(number)}+</span>
       <span className={styles.dataset_name}>{data.name}</span>
     </div>
   );
