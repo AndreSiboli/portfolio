@@ -14,6 +14,7 @@
 
 # production
 /build
+todo
 
 # misc
 .DS_Store
@@ -33,5 +34,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-todo.txt

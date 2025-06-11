@@ -7,13 +7,13 @@
   gap: 0.5em;
 
   &_number {
-    color: var.$brand_color_900;
+    color: var(--pri-normal);
     font-size: 1.25em;
     font-weight: bold;
   }
 
   &_name {
-    color: var.$neutral_color_700;
+    color: var(--text-soft);
     width: 110px;
     text-align: center;
   }

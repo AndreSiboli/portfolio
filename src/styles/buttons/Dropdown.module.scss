@@ -6,44 +6,81 @@
   transition: background 0.25s ease-in-out;
   height: fit-content;
 
-  &_info {
+  &_button {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1em;
+    font-size: 1em;
     padding: 1em;
     width: 100%;
     cursor: pointer;
-
+    border: none;
+    background: transparent;
     border-radius: 0.25em;
-    transition: background 0.25s ease-in-out;
+    transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
+    color: var(--text-normal);
 
-    @include mix.OnlyPc {
-      &:hover {
-        background: var.$brand_color_100;
-      }
-    }
-
-    .info_wrapper {
+    .button_wrapper {
       display: flex;
       align-items: center;
       gap: 1em;
-    }
 
-    .info_icon {
-      svg {
-        display: block;
-        font-size: 1.5em;
-        color: var.$brand_color_500;
+      .icon {
+        svg {
+          display: block;
+          font-size: 1.5em;
+          color: var(--pri-normal);
+        }
       }
     }
 
-    .info_button {
+    .icon > svg,
+    .button_arrow > svg {
+      transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
+    }
+
+    .button_arrow {
       svg {
         display: block;
         font-size: 1.25em;
-        color: var.$brand_color_500;
-        transition: transform 0.15s ease-in-out;
+        color: var(--pri-normal);
+      }
+    }
+
+    @include mix.OnlyPc {
+      &:hover {
+        background: var(--pri-soft);
+        color: var(--sec-text-normal);
+
+        svg {
+          color: var(--sec-text-normal) !important;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          background: var(--pri-soft);
+
+          svg {
+            color: var(--sec-text-normal) !important;
+          }
+        }
+
+        [data-theme="light"] {
+          background: var(--pri-soft);
+          color: var(--sec-text-normal);
+
+          svg {
+            color: var(--sec-text-normal) !important;
+          }
+        }
+
+        [data-theme="dark"] {
+          background: var(--pri-hard);
+
+          svg {
+            color: var(--sec-text-normal) !important;
+          }
+        }
       }
     }
   }
@@ -78,11 +115,11 @@
       .bar {
         width: 100%;
         border-radius: 0.5em;
-        background: var.$brand_color_200;
+        background: var(--pri-soft);
         height: 8px;
 
         &_percent {
-          background: var.$brand_color_500;
+          background: var(--pri-hard);
           border-radius: 0.5em;
           height: 100%;
         }
@@ -92,17 +129,12 @@
 
   &.active {
     border-radius: 0.25em;
-    @include mix.OnlyPc {
-      &:hover {
-        background: var.$brand_color_100;
-      }
-    }
 
     .dropdown_skills {
       max-height: 500px;
     }
 
-    .dropdown_info {
+    .dropdown_button {
       .info_button {
         svg {
           transform: rotate(180deg);

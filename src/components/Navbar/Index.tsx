@@ -8,6 +8,7 @@ import Logo from "@/components/layout/Logo";
 import Link from "next/link";
 
 import { PiGithubLogo } from "react-icons/pi";
+import ThemeButton from "../buttons/ThemeButton";
 
 export default function Navbar() {
   const domains = [
@@ -51,17 +52,24 @@ export default function Navbar() {
           <nav className={styles.header_navigation}>
             <div className={styles.navigation_links}>
               {domains.map((domain) => (
-                <Link href={domain.to} key={domain.to}>{domain.text}</Link>
+                <Link href={domain.to} key={domain.to}>
+                  {domain.text}
+                </Link>
               ))}
             </div>
             <div className={styles.navigation_action}>
-              <Link
-                href="https://www.github.com/AndreSiboli"
-                target="_blank"
-                aria-label="Github"
-              >
-                <PiGithubLogo />
-              </Link>
+              <div className={styles.action_git}>
+                <Link
+                  href="https://www.github.com/AndreSiboli"
+                  target="_blank"
+                  aria-label="Github"
+                >
+                  <PiGithubLogo />
+                </Link>
+              </div>
+              <div className={styles.action_button}>
+                <ThemeButton />
+              </div>
             </div>
           </nav>
         </div>

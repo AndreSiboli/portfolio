@@ -18,13 +18,13 @@
     visibility: visible;
     pointer-events: auto;
 
-    .test {
+    .card_container {
       opacity: 1 !important;
       transform: scale(1) !important;
     }
   }
 
-  .test {
+  &_container {
     height: 100%;
     align-content: center;
     border-radius: 0.5em;
@@ -42,7 +42,7 @@
   &_project {
     display: flex;
     gap: 2em;
-    background: var.$neutral_color_100;
+    background: var(--bg);
     max-width: 900px;
     width: fit-content;
     border-radius: 0.5em;
@@ -81,21 +81,6 @@
       }
     }
 
-    // .project_image {
-    //   flex: 1 1 50%;
-    //   min-width: 400px;
-    //   position: relative;
-
-    //   @media (max-width: 900px) {
-    //     flex-direction: column;
-    //     aspect-ratio: 16/9;
-    //   }
-
-    //   img {
-    //     object-position: left center;
-    //   }
-    // }
-
     .project_info {
       flex: 1 1 50%;
 
@@ -113,7 +98,7 @@
 
         time {
           font-size: 0.9em;
-          color: var.$neutral_color_700;
+          color: var(--text-soft);
         }
       }
 
@@ -135,7 +120,7 @@
 
       .info_buttons {
         display: flex;
-        gap: 0.25em;
+        gap: 0.5em;
         margin-top: 1em;
 
         a {

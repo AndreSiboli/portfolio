@@ -55,7 +55,7 @@ export default function Language(props: PropsType) {
   }
 
   return (
-    <div className={styles.language} title={language}>
+    <div className={styles.language} title={language} aria-label={language}>
       {changeLanguage()}
     </div>
   );

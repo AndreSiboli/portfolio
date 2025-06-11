@@ -42,11 +42,11 @@
 
       h2 {
         font-size: calc(1.5em + 2vw);
-        color: var.$brand_color_500;
+        color: var(--pri-normal);
       }
 
       p {
-        color: var.$neutral_color_700;
+        color: var(--text-soft);
       }
 
       @media (max-width: 1024px) {
@@ -54,12 +54,12 @@
       }
     }
 
-    .info_datas {
+    .info_contact {
       display: flex;
       flex-direction: column;
       gap: 1em;
 
-      .info_data {
+      .data {
         display: flex;
         flex-direction: column;
         gap: 0.25em;
@@ -67,7 +67,7 @@
         border-radius: 0.5em;
         padding: 1em;
 
-        .data_type {
+        .type {
           display: flex;
           align-items: center;
           gap: 0.5em;
@@ -77,36 +77,25 @@
             font-size: 1.5em;
           }
         }
-        .data_data {
-          padding: 0;
-          color: var.$brand_color_500;
-        }
-      }
-    }
 
-    .info_social {
-      display: flex;
-      gap: 2em;
-
-      @media (max-width: 1024px) {
-        width: 100%;
-        justify-content: center;
-      }
-
-      a {
-        svg {
-          font-size: 2em;
-          transition: color 0.15s ease-in-out;
-        }
-
-        @include mix.OnlyPc {
-          &:hover {
-            svg {
-              color: var.$brand_color_500;
-            }
-          }
+        .content {
+          color: var(--pri-normal);
         }
       }
     }
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  .contact .info_contact .data {
+    box-shadow: 0 0 3px 3px #0003;
+  }
+}
+
+[data-theme="dark"] .contact .info_contact .data {
+  box-shadow: 0 0 3px 3px #0003;
+}
+
+[data-theme="light"] .contact .info_contact .data {
+  box-shadow: 0 0 2px 2px #0001;
 }

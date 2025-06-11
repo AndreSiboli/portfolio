@@ -30,24 +30,20 @@ export default function Contact() {
     <section className={styles.contact} id="contact">
       <Container>
         <div className={styles.contact_container}>
-          {/* <div className={styles.contact_title}>
-            <h1>Contact</h1>
-          </div> */}
-
           <div className={styles.contact_wrapper}>
             <div className={styles.contact_info}>
-              <div className={styles.info_header}>
+              <header className={styles.info_header}>
                 <h2>Get in touch</h2>
                 <p>Are you interested? Make contact with me!</p>
-              </div>
+              </header>
 
-              <div className={styles.info_datas}>
+              <div className={styles.info_contact}>
                 {personalDatas.map((data) => (
-                  <div className={styles.info_data} key={data.data}>
-                    <span className={styles.data_type}>
+                  <div className={styles.data} key={data.data}>
+                    <p className={styles.type}>
                       {data.icon} {data.type}
-                    </span>
-                    <span className={styles.data_data}>{data.data}</span>
+                    </p>
+                    <p className={styles.content}>{data.data}</p>
                   </div>
                 ))}
               </div>

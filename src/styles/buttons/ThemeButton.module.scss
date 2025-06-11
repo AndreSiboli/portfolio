@@ -1,0 +1,33 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.mode {
+  &_wrapper {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    aspect-ratio: 1/1;
+
+    .light,
+    .dark {
+      opacity: 0;
+      position: absolute;
+      transition: opacity 0.15s ease-out;
+
+      svg {
+        display: block;
+        font-size: 1.6em;
+        color: var(--text-normal);
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}

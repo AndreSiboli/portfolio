@@ -4,7 +4,6 @@ import styles from "@/styles/layout/Card.module.scss";
 
 import LinkButton from "../links/LinkButton";
 import Language from "./Language";
-import Img from "../utils/Img";
 import Tag from "./Tag";
 
 import { PiGithubLogo } from "react-icons/pi";
@@ -16,19 +15,6 @@ interface PropsType {
   handleCard: () => void;
   isOpened: boolean;
 }
-
-type Lang =
-  | "typescript"
-  | "javascript"
-  | "react"
-  | "next.js"
-  | "node.js"
-  | "sass"
-  | "css"
-  | "express"
-  | "mongodb"
-  | "axios"
-  | "redux";
 
 export default function Card(props: PropsType) {
   const { data, handleCard, isOpened } = props;
@@ -42,9 +28,11 @@ export default function Card(props: PropsType) {
     <div
       className={`${styles.card} ${isOpened && styles.appear}`}
       onClick={closeCard}
-      id="card"
+      id={`card ${`project-card-${data.name
+        .replace(/\s+/g, "-")
+        .toLowerCase()}`}`}
     >
-      <div className={styles.test} id="card_within">
+      <div className={styles.card_container} id="card_within">
         <div className={styles.card_project}>
           <div className={styles.project_close}>
             <button onClick={handleCard}>
@@ -86,7 +74,7 @@ export default function Card(props: PropsType) {
               )}
 
               <LinkButton
-                style={{ background: "#000" }}
+                style={{ background: "var(--text-normal)" }}
                 href={data.links.github}
                 target="_blank"
                 hasSvg

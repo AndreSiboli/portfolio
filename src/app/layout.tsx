@@ -6,6 +6,7 @@ import MainContainer from "@/components/layout/MainContainer";
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  variable: '--font-nunito'
 });
 
 export const metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={`${nunito.className} ${nunito.variable}`}>
         <MainContainer>{children}</MainContainer>
       </body>
     </html>

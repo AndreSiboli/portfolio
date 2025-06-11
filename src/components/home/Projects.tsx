@@ -88,9 +88,9 @@ export default function Projects() {
     <section className={styles.projects} id="projects">
       <Container>
         <div className={styles.projects_container}>
-          <div className={styles.projects_title}>
+          <header className={styles.projects_title}>
             <h1>Projects</h1>
-          </div>
+          </header>
 
           <div className={styles.projects_wrapper}>
             <div className={styles.projects_manager}>

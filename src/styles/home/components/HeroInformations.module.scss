@@ -23,13 +23,13 @@
     height: 100%;
 
     svg {
-      color: var.$brand_color_500;
+      color: var(--pri-normal);
       font-size: 1.5em;
       transition: color 0.25s ease-in-out;
 
       @include mix.OnlyPc {
         &:hover {
-          color: var.$brand_color_700;
+          color: var(--btn-hover);
         }
       }
     }
@@ -69,11 +69,11 @@
       .words {
         display: flex;
         position: relative;
+        color: var(--pri-normal);
 
         span {
           display: block;
           position: absolute;
-          color: var.$brand_color_500;
           animation: 6s linear infinite changeText;
           text-wrap: nowrap;
           opacity: 0;
@@ -105,7 +105,7 @@
 
   &_about {
     p {
-      color: #222;
+      color: var(--text-soft);
     }
   }
 

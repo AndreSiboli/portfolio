@@ -8,6 +8,7 @@ import { PiSquaresFour, PiGithubLogo } from "react-icons/pi";
 import Logo from "../layout/Logo";
 import Container from "../layout/Container";
 import MenuActive from "./MenuActive";
+import ThemeButton from "../buttons/ThemeButton";
 
 export default function Menu() {
   const [isActive, setIsActive] = useState(false);
@@ -28,8 +29,14 @@ export default function Menu() {
           <div className={styles.wrapper_container}>
             <Logo />
             <div className={styles.menu_end}>
+              <div className={styles.menu_theme}>
+                <ThemeButton />
+              </div>
               <div className={styles.menu_action}>
-                <Link href="https://www.github.com/AndreSiboli" aria-label="Github">
+                <Link
+                  href="https://www.github.com/AndreSiboli"
+                  aria-label="Github"
+                >
                   <PiGithubLogo />
                 </Link>
               </div>

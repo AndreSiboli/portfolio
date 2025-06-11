@@ -7,13 +7,13 @@
 
   svg {
     display: block;
-    color: var.$brand_color_500;
+    color: var(--pri-normal);
     font-size: 1.5em;
     transition: color 0.25s ease-in-out;
 
     @include mix.OnlyPc {
       &:hover {
-        color: var.$brand_color_700;
+        color: var(--btn-hover);
       }
     }
   }

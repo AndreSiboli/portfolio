@@ -3,12 +3,105 @@
 
 :root {
   font-size: 1.05em;
+  //Bg dark
+  --clr-pri-light-soft: #{var.$clr-pri-light-soft};
+  --clr-pri-light-normal: #{var.$clr-pri-light-normal};
+  --clr-pri-light-hard: #{var.$clr-pri-light-hard};
+  //Bg light
+  --clr-pri-dark-soft: #{var.$clr-pri-dark-soft};
+  --clr-pri-dark-normal: #{var.$clr-pri-dark-normal};
+  --clr-pri-dark-hard: #{var.$clr-pri-dark-hard};
+  //Common
+  --clr-dark-soft: #{var.$clr-dark-soft};
+  --clr-dark-normal: #{var.$clr-dark-normal};
+  --clr-dark-hard: #{var.$clr-dark-hard};
+  --clr-light-soft: #{var.$clr-light-soft};
+  --clr-light-normal: #{var.$clr-light-normal};
+  --clr-light-hard: #{var.$clr-light-hard};
+
+  //Default theme
+  --bg: var(--clr-light-hard);
+
+  --pri-soft: var(--clr-pri-dark-soft);
+  --pri-normal: var(--clr-pri-dark-normal);
+  --pri-hard: var(--clr-pri-dark-hard);
+
+  --text-soft: var(--clr-dark-soft);
+  --text-normal: var(--clr-dark-normal);
+  --text-hard: var(--clr-dark-hard);
+
+  --sec-text-soft: var(--clr-light-soft);
+  --sec-text-normal: var(--clr-light-hard);
+  --sec-text-hard: var(--clr-light-hard);
+
+  --btn-hover: var(--pri-hard);
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  transition: none;
+}
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --bg: var(--clr-dark-normal);
+
+//     --pri-soft: var(--clr-pri-light-soft);
+//     --pri-normal: var(--clr-pri-light-normal);
+//     --pri-hard: var(--clr-pri-light-hard);
+
+//     --text-soft: var(--clr-light-soft);
+//     --text-normal: var(--clr-light-normal);
+//     --text-hard: var(--clr-light-hard);
+
+//     --sec-text-soft: var(--clr-dark-soft);
+//     --sec-text-normal: var(--clr-dark-normal);
+//     --sec-text-hard: var(--clr-dark-hard);
+
+//     --btn-hover: var(--pri-soft);
+//   }
+// } //Fixing a bug
+
+html {
+  color-scheme: light dark;
+}
+
+[data-theme="light"] {
+  --bg: var(--clr-light-hard);
+
+  --pri-soft: var(--clr-pri-dark-soft);
+  --pri-normal: var(--clr-pri-dark-normal);
+  --pri-hard: var(--clr-pri-dark-hard);
+
+  --text-soft: var(--clr-dark-soft);
+  --text-normal: var(--clr-dark-normal);
+  --text-hard: var(--clr-dark-hard);
+
+  --sec-text-soft: var(--clr-light-soft);
+  --sec-text-normal: var(--clr-light-normal);
+  --sec-text-hard: var(--clr-light-hard);
+
+  --btn-hover: var(--pri-hard);
+}
+
+[data-theme="dark"] {
+  --bg: var(--clr-dark-normal);
+
+  --pri-soft: var(--clr-pri-light-soft);
+  --pri-normal: var(--clr-pri-light-normal);
+  --pri-hard: var(--clr-pri-light-hard);
+
+  --text-soft: var(--clr-light-soft);
+  --text-normal: var(--clr-light-normal);
+  --text-hard: var(--clr-light-hard);
+
+  --sec-text-soft: var(--clr-dark-soft);
+  --sec-text-normal: var(--clr-dark-hard);
+  --sec-text-hard: var(--clr-dark-hard);
+
+  --btn-hover: var(--pri-soft);
 }
 
 html,
@@ -16,10 +109,11 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background: var.$neutral_color_100;
 }
 
 body {
+  background: var(--bg);
+  color: var(--text-hard);
   @include mix.Scroll;
 }
 
@@ -34,4 +128,8 @@ h1 {
 
 h2 {
   font-size: 1.17em;
+}
+
+button {
+  font-family: var(--font-nunito);
 }

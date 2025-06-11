@@ -13,7 +13,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background: var.$neutral_color_100;
+    background: var(--bg);
     border-radius: 1em 1em 0 0;
     box-shadow: 0 0 5px 1px #0005;
     max-height: 0;
@@ -56,11 +56,11 @@
             &:hover {
               gap: 1em;
               padding: calc(1em - (0.5em / 2)) 1em;
-              background: var.$brand_color_100;
-              color: var.$brand_color_900;
+              background: var(--btn-hover);
+              color: var(--sec-text-normal);
 
               svg {
-                color: var.$brand_color_900;
+                color: var(--sec-text-normal);
               }
             }
           }
@@ -76,6 +76,7 @@
         display: block;
         background: transparent;
         border: none;
+        color: var(--text-normal);
         cursor: pointer;
 
         svg {

@@ -5,8 +5,8 @@
   padding: 1em 2em;
   border: none;
   border-radius: 1em;
-  background: var.$brand_color_500;
-  color: var.$pri_text_color;
+  background: var(--pri-normal);
+  color: var(--sec-text-normal);
   font-size: 1em;
   cursor: pointer;
   width: 100%;

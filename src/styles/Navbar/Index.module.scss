@@ -2,7 +2,7 @@
 @use "@/styles/_dirs/mixins" as mix;
 
 .header {
-  background: var.$lightest_color;
+  background: var(--bg);
   width: 100%;
   padding: 1em 2em;
   position: fixed;
@@ -57,9 +57,15 @@
     }
 
     .navigation_action {
-      svg {
-        display: block;
-        font-size: 1.3em;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      
+      .action_git {
+        svg {
+          display: block;
+          font-size: 1.3em;
+        }
       }
     }
   }

@@ -1,5 +1,6 @@
 @use "@/styles/_dirs/variables" as var;
 @use "@/styles/_dirs/mixins" as mix;
+@use "@/styles/_dirs/accessibility" as acc;
 
 .sort {
   position: relative;
@@ -9,7 +10,11 @@
     display: flex;
     align-items: center;
     gap: 0.25em;
+    border: none;
+    font-size: 1em;
+    background: transparent;
     cursor: pointer;
+    color: var(--text-normal);
 
     p {
       text-transform: uppercase;
@@ -22,7 +27,7 @@
     position: absolute;
     top: 25px;
     right: 0;
-    background: var.$neutral_color_100;
+    background: var(--bg);
     box-shadow: 0 0 5px #0005;
     max-width: 300px;
     border-radius: 0.5em;
@@ -35,10 +40,19 @@
     gap: 0.5em;
     width: fit-content;
     padding: 2em 1.5em;
+    border: none;
+
+    legend {
+      @include acc.VisibleOnlyForScreenReaders;
+    }
 
     .option {
       input {
-        display: none;
+        @include acc.VisibleOnlyForScreenReaders;
+      }
+
+      input:focus-visible + label {
+        @include acc.FocusVisible;
       }
 
       label {
@@ -59,4 +73,18 @@
       display: block;
     }
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  .sort .sort_container {
+    box-shadow: 0 0 5px #0007;
+  }
+}
+
+[data-theme="dark"] .sort .sort_container {
+  box-shadow: 0 0 5px #0007;
+}
+
+[data-theme="light"] .sort .sort_container {
+  box-shadow: 0 0 5px #0005;
 }

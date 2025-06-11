@@ -36,12 +36,18 @@ export default function Sort(props: PropsType) {
 
   return (
     <div className={`${styles.sort} ${isOpen && styles.opened}`} ref={sortRef}>
-      <div className={styles.sort_title} onClick={defineIsOpen}>
+      <button
+        className={styles.sort_title}
+        onClick={defineIsOpen}
+        aria-expanded={isOpen}
+        aria-controls="sort-options"
+      >
         <p>Sort</p>
         <PiPlus />
-      </div>
-      <div className={styles.sort_container}>
-        <div className={styles.sort_options}>
+      </button>
+      <div className={styles.sort_container} id="sort-options">
+        <fieldset className={styles.sort_options}>
+          <legend>Sorting options</legend>
           {options.map((option) => (
             <div
               className={`${styles.option} ${
@@ -53,13 +59,13 @@ export default function Sort(props: PropsType) {
                 type="radio"
                 id={option.value}
                 name="sort"
-                defaultChecked={option.default}
+                checked={option.default}
                 onChange={() => onChange(option.value as SortType)}
               />
               <label htmlFor={option.value}>{option.name}</label>
             </div>
           ))}
-        </div>
+        </fieldset>
       </div>
     </div>
   );

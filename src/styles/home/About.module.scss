@@ -1,4 +1,5 @@
 @use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
 
 .about {
   padding: 0 1em;
@@ -32,7 +33,13 @@
       text-align: center;
 
       a {
-        color: var.$brand_color_500;
+        color: var(--pri-normal);
+
+        @include mix.OnlyPc {
+          &:hover {
+            color: var(--btn-hover);
+          }
+        }
       }
     }
   }

@@ -2,9 +2,9 @@
 @use "@/styles/_dirs/mixins" as mix;
 
 .project {
+  background: var(--bg);
   border-radius: 0.5em;
   box-shadow: 0 0 2px 2px #0002;
-  background: var.$neutral_color_100;
   padding: 0.5em;
   cursor: pointer;
 
@@ -15,6 +15,7 @@
     aspect-ratio: 16/9;
 
     img {
+      background: var(--pri-normal);
       transition: transform 0.25s ease-in-out;
     }
   }
@@ -40,7 +41,7 @@
 
       p {
         font-size: 0.9em;
-        color: var.$neutral_color_700;
+        color: var(--text-soft);
         transition: color 0.15s ease-in-out;
       }
     }
@@ -62,10 +63,24 @@
         .info_start {
           h2,
           p {
-            color: var.$brand_color_400;
+            color: var(--pri-normal);
           }
         }
       }
     }
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  .project {
+    box-shadow: 0 0 3px 3px #0005;
+  }
+}
+
+[data-theme="dark"] .project {
+  box-shadow: 0 0 3px 3px #0005;
+}
+
+[data-theme="light"] .project {
+  box-shadow: 0 0 2px 2px #0002;
 }

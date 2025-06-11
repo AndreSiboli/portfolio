@@ -45,7 +45,7 @@
       }
 
       svg {
-        color: var.$brand_color_500;
+        color: var(--pri-normal);
       }
 
       @keyframes starMoving {
@@ -63,6 +63,7 @@
 
     img {
       border-radius: 46% 54% 60% 40% / 37% 50% 50% 63%;
+      background: var(--pri-normal);
     }
   }
 }

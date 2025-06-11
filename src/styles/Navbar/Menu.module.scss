@@ -6,7 +6,7 @@
   transition: background 0.15s ease-in-out;
 
   &_wrapper {
-    background: var.$neutral_color_100;
+    background: var(--bg);
     box-shadow: 0 0 5px 1px #0005;
     width: 100%;
     padding: 1em 2em;
@@ -46,6 +46,7 @@
         display: block;
         border: none;
         background: transparent;
+        color: var(--text-normal);
         cursor: pointer;
 
         svg {
