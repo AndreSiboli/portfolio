@@ -5,12 +5,9 @@
   padding: 0.75em 1.75em;
   border: none;
   border-radius: 0.5em;
-  background: var.$brand_color_500;
-  color: var.$pri_text_color;
   font-size: 1em;
   cursor: pointer;
   width: 100%;
-  //   min-height: 60px;
 
   display: flex;
   justify-content: center;
@@ -20,23 +17,23 @@
     background 0.1s ease-in-out;
 
   &.v1 {
-    background: var.$neutral-color_900;
+    background: var.$clr-dark-normal;
     color: #fff;
 
     @include mix.OnlyPc {
       &:hover {
-        background: var.$brand_color_500;
+        background: var(--btn-hover);
       }
     }
   }
 
   &.v2 {
-    background: var.$neutral-color_100;
+    background: var.$clr-light-normal;
     color: #000;
 
     @include mix.OnlyPc {
       &:hover {
-        background: var.$brand_color_500;
+        background: var(--btn-hover);
       }
     }
   }

@@ -63,14 +63,15 @@
         border: none;
         background: transparent;
         cursor: pointer;
-        background: var.$brand_color_200;
+        background: var(--pri-normal);
+        color: var(--sec-text-normal);
         border-radius: 0 0.5em 0 0.5em;
         padding: 0.5em;
         transition: background 0.15s ease-in-out;
 
         @include mix.OnlyPc {
           &:hover {
-            background: var.$brand_color_100;
+            background: var(--btn-hover);
           }
         }
 

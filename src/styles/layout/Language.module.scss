@@ -8,7 +8,7 @@
 
     @include mix.OnlyPc{
         &:hover{
-            color: var.$brand_color_200
+            color: var(--btn-hover)
         }
     }
   }

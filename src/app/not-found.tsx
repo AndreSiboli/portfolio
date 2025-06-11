@@ -11,7 +11,7 @@ export default function Error404() {
           <p className={styles.error_joke}>
             Hey, Why was the 404 page always late for work?
             <br />
-            Because it kept taking the wrong &quote;route&quote;!
+            Because it kept taking the wrong &quot;route&quot;!
           </p>
           <p>
             Ha ha ha. <strong>*clearing throat*</strong>.
