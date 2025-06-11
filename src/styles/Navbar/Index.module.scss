@@ -11,7 +11,7 @@
   border-bottom: 1px solid transparent;
 
   &:not(.onTop) {
-    border-bottom-color: lighten($color: var.$darkest_color, $amount: 60);
+    border-bottom-color: lighten($color: var.$clr-dark-hard, $amount: 60);
   }
 
   &_container {

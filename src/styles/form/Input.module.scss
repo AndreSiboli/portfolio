@@ -11,6 +11,7 @@
     border-radius: 0.5em;
     font-size: 1em;
     background: var(--bg);
+    color: var(--text-normal);
 
     &:focus {
       outline: none;
@@ -34,12 +35,15 @@
     }
 
     &:-webkit-autofill {
+      box-shadow: 0 0 0 30px var(--bg) inset !important;
       -webkit-box-shadow: 0 0 0 30px var(--bg) inset !important;
+      -webkit-text-fill-color: var(--text-normal) !important;
     }
 
     /* This will target Mozilla Firefox */
     &:-moz-autofill {
       box-shadow: 0 0 0 30px var(--bg) inset !important;
+      color: var(--text-normal) !important;
     }
   }
 
