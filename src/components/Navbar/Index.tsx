@@ -6,9 +6,9 @@ import styles from "@/styles/Navbar/Index.module.scss";
 import Container from "@/components/layout/Container";
 import Logo from "@/components/layout/Logo";
 import Link from "next/link";
+import ThemeButton from "../buttons/ThemeButton";
 
 import { PiGithubLogo } from "react-icons/pi";
-import ThemeButton from "../buttons/ThemeButton";
 
 export default function Navbar() {
   const domains = [
@@ -18,26 +18,20 @@ export default function Navbar() {
     { to: "/#projects", text: "Projects" },
     { to: "/#contact", text: "Contact" },
   ];
-  const [isOnTop, setIsOnTop] = useState(false);
+  const [isOnTop, setIsOnTop] = useState(true);
 
   function scrolling() {
-    const scroll = window.scrollY;
-
-    if (scroll === 0) setIsOnTop(true);
-    else setIsOnTop(false);
+    setIsOnTop(window.scrollY === 0);
   }
 
   useEffect(() => {
-    scrolling();
-  }, []);
-
-  useEffect(() => {
     window.addEventListener("scroll", scrolling);
+    scrolling();
 
     return () => {
       window.removeEventListener("scroll", scrolling);
     };
-  }, [isOnTop]);
+  }, []);
 
   return (
     <header className={`${styles.header} ${isOnTop && styles.onTop}`}>

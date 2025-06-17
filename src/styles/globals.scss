@@ -29,25 +29,25 @@
   transition: none;
 }
 
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --bg: var(--clr-dark-normal);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #{var.$clr-dark-normal};
 
-//     --pri-soft: var(--clr-pri-light-soft);
-//     --pri-normal: var(--clr-pri-light-normal);
-//     --pri-hard: var(--clr-pri-light-hard);
+    --pri-soft: #{var.$clr-pri-light-soft};
+    --pri-normal: #{var.$clr-pri-light-normal};
+    --pri-hard: #{var.$clr-pri-light-hard};
 
-//     --text-soft: var(--clr-light-soft);
-//     --text-normal: var(--clr-light-normal);
-//     --text-hard: var(--clr-light-hard);
+    --text-soft: #{var.$clr-light-soft};
+    --text-normal: #{var.$clr-light-normal};
+    --text-hard: #{var.$clr-light-hard};
 
-//     --sec-text-soft: var(--clr-dark-soft);
-//     --sec-text-normal: var(--clr-dark-normal);
-//     --sec-text-hard: var(--clr-dark-hard);
+    --sec-text-soft: #{var.$clr-dark-soft};
+    --sec-text-normal: #{var.$clr-dark-normal};
+    --sec-text-hard: #{var.$clr-dark-hard};
 
-//     --btn-hover: var(--pri-soft);
-//   }
-// } //Fixing a bug
+    --btn-hover: var(--pri-soft);
+  }
+}
 
 html {
   color-scheme: light dark;
@@ -100,6 +100,10 @@ body {
   background: var(--bg);
   color: var(--text-hard);
   @include mix.Scroll;
+
+  &.no-transition * {
+    transition: none !important;
+  }
 }
 
 a {
