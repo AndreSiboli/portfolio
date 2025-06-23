@@ -2,6 +2,7 @@ import styles from "@/styles/buttons/Filter.module.scss";
 import { closeWhenClickedOutsideTheElement } from "@/utils/closeManager";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { PiMagnifyingGlass } from "react-icons/pi";
+import Checkbox from "../input/Checkbox";
 
 type value = {
   name: string;
@@ -70,6 +71,7 @@ export default function Filter(props: PropsType) {
   }
 
   function onChange(value: string) {
+    console.log("eu");
     isSelected(value);
   }
 
@@ -78,10 +80,10 @@ export default function Filter(props: PropsType) {
       className={`${styles.filter} ${isOpen && styles.opened}`}
       ref={filterRef}
     >
-      <div className={styles.filter_title} onClick={defineIsOpen}>
+      <button className={styles.filter_title} onClick={defineIsOpen}>
         <p>Filter</p>
         <PiMagnifyingGlass />
-      </div>
+      </button>
       <div className={styles.filter_container}>
         <div className={styles.filter_options}>
           {state.filter.map((option) => (
@@ -98,6 +100,17 @@ export default function Filter(props: PropsType) {
                 checked={option.selected}
                 value={option.value}
                 onChange={() => onChange(option.value)}
+              />
+              <Checkbox
+                name={option.name}
+                isChecked={option.selected}
+                onClick={() => onChange(option.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onChange(option.value);
+                  }
+                }}
               />
               <label htmlFor={option.value}>{option.name}</label>
             </div>

@@ -1,0 +1,35 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+@use "@/styles/_dirs/accessibility" as acc;
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  aspect-ratio: 1/1;
+  border: 1px solid var(--text-soft);
+  border-radius: 0.15em;
+  cursor: pointer;
+  background: var(--text-soft);
+  padding: 0.1em;
+
+  &:focus-visible {
+    @include acc.FocusVisible;
+  }
+
+  svg {
+    display: none;
+    color: var(--sec-text-normal);
+    font-size: 80%;
+  }
+
+  &.checked {
+    border-color: var(--text-normal);
+    background: var(--pri-soft);
+
+    svg {
+      display: block;
+    }
+  }
+}

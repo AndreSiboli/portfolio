@@ -1,5 +1,6 @@
 @use "@/styles/_dirs/variables" as var;
 @use "@/styles/_dirs/mixins" as mix;
+@use "@/styles/_dirs/accessibility" as acc;
 
 .filter {
   position: relative;
@@ -9,6 +10,10 @@
     display: flex;
     align-items: center;
     gap: 0.25em;
+    border: none;
+    font-size: 1em;
+    background: none;
+    color: var(--text-normal);
     cursor: pointer;
 
     p {
@@ -22,7 +27,7 @@
     position: absolute;
     top: 25px;
     right: 0;
-    background: var.$neutral_color_100;
+    background: var(--bg);
     box-shadow: 0 0 5px #0005;
     max-width: 300px;
     border-radius: 0.5em;
@@ -35,16 +40,13 @@
     width: fit-content;
     padding: 2em 1.5em;
 
-
     .option {
       display: flex;
       align-items: center;
       gap: 0.5em;
 
-      input{
-        width: 18px;
-        aspect-ratio: 1/1;
-        cursor: pointer;
+      input {
+        display: none;
       }
 
       label {
@@ -54,7 +56,7 @@
 
       &:not(.selected) {
         label {
-          color: var.$neutral_color_600;
+          color: var(--text-soft);
         }
       }
     }
