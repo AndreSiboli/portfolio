@@ -30,6 +30,7 @@ export default function Sort(props: PropsType) {
   }
 
   function onChange(value: SortType) {
+    console.log(value);
     handleValue(value);
     setIsOpen(false);
   }
@@ -59,7 +60,7 @@ export default function Sort(props: PropsType) {
                 type="radio"
                 id={option.value}
                 name="sort"
-                checked={option.default}
+                defaultChecked={option.default}
                 onChange={() => onChange(option.value as SortType)}
               />
               <label htmlFor={option.value}>{option.name}</label>

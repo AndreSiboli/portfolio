@@ -15,7 +15,6 @@ import Container from "@/components/layout/Container";
 import ProjectItem from "../layout/ProjectsItem";
 import Sort from "../buttons/Sort";
 import Filter from "../buttons/Filter";
-import SimpleButton from "../buttons/SimpleButton";
 import Button from "../buttons/Button";
 
 type SortType = "da" | "dd" | "na" | "nd";
