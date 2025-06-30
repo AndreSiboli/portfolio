@@ -103,7 +103,7 @@ export default function Projects() {
             </div>
             <div className={styles.projects_button}>
               {!checkIfAllLimitedProjectedAreShowed() ? (
-                <Button onClick={seeMoreProjects} variant="v1">Load more</Button>
+                <Button onClick={seeMoreProjects}>Load more</Button>
               ) : (
                 <p>You&apos;ve seen all the projects</p>
               )}

@@ -13,7 +13,7 @@ interface PropsType extends ComponentProps<"button"> {
 }
 
 export default function Button(props: PropsType) {
-  const { children, variant = "v1" } = props;
+  const { children, variant = '' } = props;
 
   return (
     <button
