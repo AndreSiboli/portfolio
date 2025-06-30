@@ -20,7 +20,7 @@ export default function Card(props: PropsType) {
   const { data, handleCard, isOpened } = props;
 
   function closeCard(e: MouseEvent<HTMLDivElement>) {
-    if ((e.target as HTMLDivElement).id === "card") handleCard();
+    if ((e.target as HTMLDivElement).id.match(/^card\s/)) handleCard();
     if ((e.target as HTMLDivElement).id === "card_within") handleCard();
   }
 

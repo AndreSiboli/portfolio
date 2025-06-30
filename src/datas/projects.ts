@@ -68,8 +68,8 @@ export const projects: ProjectsType[] = [
     src: { thumbnail: charlotte },
     tags: ["Website"],
     description:
-      "I've created a photographer portfolio as a project. This is not a real website. All image credits are mentioned in the footer.",
-    postedAt: "2025/03/15",
+      "I've created this photographer portfolio as a personal project. It was recently redesigned with a new layout and animations. Please note that this is not a real website. All image credits are listed in the footer.",
+    postedAt: "2025/06/25",
     technologies: ["Next.js", "Typescript", "Sass", "React"],
   },
   {
