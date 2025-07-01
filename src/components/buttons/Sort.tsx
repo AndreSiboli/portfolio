@@ -30,7 +30,6 @@ export default function Sort(props: PropsType) {
   }
 
   function onChange(value: SortType) {
-    console.log(value);
     handleValue(value);
     setIsOpen(false);
   }

@@ -71,7 +71,6 @@ export default function Filter(props: PropsType) {
   }
 
   function onChange(value: string) {
-    console.log("eu");
     isSelected(value);
   }
 
