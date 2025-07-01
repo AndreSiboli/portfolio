@@ -7,6 +7,7 @@
   border-radius: 1em;
   background: var(--pri-normal);
   color: var(--sec-text-normal);
+  font-family: var(--font-nunito);
   font-size: 1em;
   cursor: pointer;
   width: 100%;
@@ -14,9 +15,17 @@
 
   &.text {
     padding: 0;
+
+    @include mix.OnlyPc {
+      transition: background .15s ease-in-out;
+      
+      &:hover {
+        background: var(--btn-hover);
+      }
+    }
   }
 
-  &.node {
+  &.svg {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,6 +39,7 @@
 
     @include mix.OnlyPc {
       &:hover {
+        background: var(--btn-hover);
         gap: 1em;
         padding: 1em calc(1.5em - (0.5em / 2));
       }

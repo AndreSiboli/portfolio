@@ -50,14 +50,14 @@ export default function FormContact() {
 
       <div className={styles.form_button}>
         <Submit
-          handleSubmit={handleSubmit}
-          text={
-            <>
-              Send <VscSend />
-            </>
-          }
           loading={isLoading}
-        />
+          onClick={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
+          Send <VscSend />
+        </Submit>
       </div>
     </form>
   );

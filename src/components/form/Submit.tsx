@@ -1,35 +1,22 @@
+import { ComponentProps, ReactNode } from "react";
 import styles from "@/styles/form/Submit.module.scss";
-import { MouseEvent, ReactNode } from "react";
-import { Nunito } from "next/font/google";
 import Loading from "../utils/Loading";
 
-const nunito = Nunito({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-interface PropsType {
-  text: string | ReactNode;
-  handleSubmit: () => void;
+interface PropsType extends ComponentProps<"button"> {
+  children: ReactNode;
   loading: boolean;
+  hasSvg?: boolean;
 }
 
 export default function Submit(props: PropsType) {
-  const { text, handleSubmit, loading } = props;
-
-  function submit(e: MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
-    handleSubmit();
-  }
+  const { children, loading, hasSvg = false, ...rest } = props;
 
   return (
     <button
-      onClick={(e) => submit(e)}
-      className={`${nunito.className} ${styles.button} ${
-        typeof text === "string" ? styles.text : styles.node
-      }`}
+      {...rest}
+      className={`${styles.button} ${hasSvg ? styles.text : styles.svg}`}
     >
-      {loading ? <Loading /> : text}
+      {loading ? <Loading /> : children}
     </button>
   );
 }
