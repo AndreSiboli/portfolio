@@ -1,18 +1,19 @@
-import "@/styles/globals.scss";
+import "@/styles/pages/globals.scss";
 import { Nunito } from "next/font/google";
+import { Metadata } from "next";
 
 import MainContainer from "@/components/layout/MainContainer";
 
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: '--font-nunito'
+  variable: "--font-nunito",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Siboli | Portfolio",
   description: "This is my personal portfolio.",
-  author: "André Siboli",
+  authors: [{ name: "André Siboli", url: "https://github.com/AndreSiboli" }],
   icons: {
     icon: "/favicon.ico",
   },

@@ -1,4 +1,4 @@
-import styles from "@/styles/page.module.scss";
+import styles from "@/styles/pages/home.module.scss";
 
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";

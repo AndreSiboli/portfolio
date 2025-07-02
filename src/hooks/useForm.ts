@@ -1,6 +1,6 @@
 "use client";
 
-import { createRef, RefObject, useMemo, useRef, useState } from "react";
+import { createRef, RefObject, useMemo, useState } from "react";
 
 type refsType = Record<
   string,
@@ -23,8 +23,8 @@ export default function useForm({
   const [isLoading, setIsLoading] = useState(false);
 
   const refs = useMemo(() => {
-    return fields.reduce<refsType>((acc, field) => {
-      acc[field] = createRef<HTMLInputElement | HTMLTextAreaElement>();
+    return fields.reduce<refsType>((acc, key) => {
+      acc[key] = createRef<HTMLInputElement | HTMLTextAreaElement>();
       return acc;
     }, {});
   }, []);
