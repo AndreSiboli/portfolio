@@ -6,6 +6,7 @@
 
   //Default theme
   --bg: #{var.$clr-light-normal};
+  --sec-bg: #{var.$clr-dark-normal};
 
   --pri-soft: #{var.$clr-pri-dark-soft};
   --pri-normal: #{var.$clr-pri-dark-normal};
@@ -32,6 +33,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #{var.$clr-dark-normal};
+    --sec-bg: #{var.$clr-light-hard};
 
     --pri-soft: #{var.$clr-pri-light-soft};
     --pri-normal: #{var.$clr-pri-light-normal};
@@ -55,6 +57,7 @@ html {
 
 [data-theme="light"] {
   --bg: #{var.$clr-light-normal};
+  --sec-bg: #{var.$clr-dark-normal};
 
   --pri-soft: #{var.$clr-pri-dark-soft};
   --pri-normal: #{var.$clr-pri-dark-normal};
@@ -73,6 +76,7 @@ html {
 
 [data-theme="dark"] {
   --bg: #{var.$clr-dark-normal};
+  --sec-bg: #{var.$clr-light-hard};
 
   --pri-soft: #{var.$clr-pri-light-soft};
   --pri-normal: #{var.$clr-pri-light-normal};

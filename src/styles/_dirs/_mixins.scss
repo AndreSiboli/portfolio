@@ -9,14 +9,18 @@
 @mixin Scroll {
   &::-webkit-scrollbar {
     max-width: 10px;
-    background: #fff;
+    background: var(--bg);
   }
 
   &::-webkit-scrollbar-thumb {
-    background: var.$neutral_color_900;
+    background: var(--sec-bg);
 
     &:hover {
-      background: transparentize($color: var.$neutral_color_900, $amount: 0.3);
+      cursor: grab;
+    }
+
+    &:active {
+      cursor: grabbing;
     }
   }
 }
