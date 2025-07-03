@@ -1,6 +1,6 @@
 "use client";
 
-import { MouseEvent } from "react";
+import { RefObject } from "react";
 import styles from "@/styles/Navbar/MenuActive.module.scss";
 
 import Container from "../layout/Container";
@@ -10,13 +10,13 @@ import { PiX, PiHouseLine, PiUser, PiFileText, PiFiles } from "react-icons/pi";
 import { VscSend } from "react-icons/vsc";
 
 interface PropsType {
-  isActive: boolean;
+  isOpen: boolean;
+  menuRef: RefObject<HTMLDivElement | null>;
   handleClose: () => void;
-  handleOutClick: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
 export default function MenuActive(props: PropsType) {
-  const { isActive, handleClose, handleOutClick } = props;
+  const { isOpen, menuRef, handleClose } = props;
 
   const domains = [
     { to: "/#home", text: "Home", icon: <PiHouseLine /> },
@@ -27,14 +27,10 @@ export default function MenuActive(props: PropsType) {
   ];
 
   return (
-    <div
-      className={`${styles.menu_wrapper} ${isActive && styles.active}`}
-      onClick={(e) => handleOutClick(e)}
-      id="menu"
-    >
-      <div className={`${styles.menu} ${isActive && styles.active}`}>
+    <div className={`${styles.menu_wrapper} ${isOpen && styles.active}`}>
+      <div className={`${styles.menu} ${isOpen && styles.active}`}>
         <Container>
-          <div className={styles.menu_container}>
+          <div className={styles.menu_container} ref={menuRef}>
             <nav className={styles.menu_navigation}>
               {domains.map((domain) => (
                 <div className={styles.navigation_link} key={domain.to}>

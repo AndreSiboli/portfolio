@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { RefObject } from "react";
 import { ProjectsType } from "@/_types/projectsType";
 import styles from "@/styles/layout/Card.module.scss";
 
@@ -12,28 +12,21 @@ import { AiOutlineClose } from "react-icons/ai";
 
 interface PropsType {
   data: ProjectsType;
-  handleCard: () => void;
-  isOpened: boolean;
+  isOpen: boolean;
+  cardRef: RefObject<HTMLDivElement | null>;
+  handleCard: VoidFunction;
 }
 
 export default function Card(props: PropsType) {
-  const { data, handleCard, isOpened } = props;
-
-  function closeCard(e: MouseEvent<HTMLDivElement>) {
-    if ((e.target as HTMLDivElement).id.match(/^card\s/)) handleCard();
-    if ((e.target as HTMLDivElement).id === "card_within") handleCard();
-  }
+  const { data, cardRef, isOpen, handleCard } = props;
 
   return (
     <div
-      className={`${styles.card} ${isOpened && styles.appear}`}
-      onClick={closeCard}
-      id={`card ${`project-card-${data.name
-        .replace(/\s+/g, "-")
-        .toLowerCase()}`}`}
+      className={`${styles.card} ${isOpen && styles.appear}`}
+      id={`${`project-card-${data.name.replace(/\s+/g, "-").toLowerCase()}`}`}
     >
-      <div className={styles.card_container} id="card_within">
-        <div className={styles.card_project}>
+      <div className={styles.card_container}>
+        <div className={styles.card_project} ref={cardRef}>
           <div className={styles.project_close}>
             <button onClick={handleCard}>
               <AiOutlineClose />

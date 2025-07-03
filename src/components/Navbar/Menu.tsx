@@ -1,25 +1,23 @@
 "use client";
 
-import { MouseEvent, useState } from "react";
+import { useRef } from "react";
+import useToggle from "@/hooks/useToggle";
 import styles from "@/styles/Navbar/Menu.module.scss";
-import Link from "next/link";
 
-import { PiSquaresFour, PiGithubLogo } from "react-icons/pi";
+import Link from "next/link";
 import Logo from "../layout/Logo";
 import Container from "../layout/Container";
 import MenuActive from "./MenuActive";
 import ThemeButton from "../buttons/ThemeButton";
 
+import { PiSquaresFour, PiGithubLogo } from "react-icons/pi";
+
 export default function Menu() {
-  const [isActive, setIsActive] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useToggle({ elements: [menuRef] });
 
   function toogleMenu() {
-    setIsActive((prevState) => !prevState);
-  }
-
-  function checkClose(e: MouseEvent<HTMLDivElement>) {
-    const target = e.target as HTMLDivElement;
-    if (target.id === "menu") setIsActive(false);
+    setIsOpen((prevState) => !prevState);
   }
 
   return (
@@ -50,11 +48,7 @@ export default function Menu() {
         </Container>
       </div>
 
-      <MenuActive
-        handleClose={toogleMenu}
-        isActive={isActive}
-        handleOutClick={checkClose}
-      />
+      <MenuActive menuRef={menuRef} isOpen={isOpen} handleClose={toogleMenu} />
     </div>
   );
 }

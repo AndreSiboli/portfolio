@@ -1,8 +1,9 @@
+import { Dispatch, SetStateAction, useRef } from "react";
+import useToggle from "@/hooks/useToggle";
 import styles from "@/styles/buttons/Filter.module.scss";
-import { closeWhenClickedOutsideTheElement } from "@/utils/closeManager";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { PiMagnifyingGlass } from "react-icons/pi";
 import Checkbox from "../input/Checkbox";
+
+import { PiMagnifyingGlass } from "react-icons/pi";
 
 type value = {
   name: string;
@@ -16,11 +17,7 @@ interface PropsType {
 export default function Filter(props: PropsType) {
   const { state } = props;
   const filterRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    closeWhenClickedOutsideTheElement(filterRef, setIsOpen);
-  }, []);
+  const [isOpen, setIsOpen] = useToggle({ elements: [filterRef] });
 
   function defineIsOpen() {
     setIsOpen((prevState) => !prevState);

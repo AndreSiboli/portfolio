@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef } from "react";
+import useToggle from "@/hooks/useToggle";
 import styles from "@/styles/layout/ProjectsItem.module.scss";
 import { ProjectsType } from "@/_types/projectsType";
 
@@ -14,11 +15,8 @@ interface PropsType {
 
 export default function ProjectItem(props: PropsType) {
   const { data } = props;
-  const [isOpen, setIsOpen] = useState(false);
-
-  function closeCard() {
-    setIsOpen(false);
-  }
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useToggle({ elements: [cardRef] });
 
   return (
     <>
@@ -48,7 +46,12 @@ export default function ProjectItem(props: PropsType) {
           </div>
         </div>
       </article>
-      <Card data={data} handleCard={closeCard} isOpened={isOpen} />
+      <Card
+        data={data}
+        handleCard={() => setIsOpen(false)}
+        isOpen={isOpen}
+        cardRef={cardRef}
+      />
     </>
   );
 }

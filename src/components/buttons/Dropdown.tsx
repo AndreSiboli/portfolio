@@ -1,10 +1,10 @@
 "use client";
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useRef } from "react";
+import useToggle from "@/hooks/useToggle";
 import styles from "@/styles/buttons/Dropdown.module.scss";
 
 import { FaAngleDown } from "react-icons/fa6";
-import { closeWhenClickedOutsideTheElement } from "@/utils/closeManager";
 
 interface PropsType {
   data: {
@@ -16,26 +16,22 @@ interface PropsType {
 
 export default function Dropdown(props: PropsType) {
   const { data } = props;
-  const [isActive, setIsActive] = useState(false);
   const dropRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useToggle({ elements: [dropRef] });
 
-  function defineIsActive() {
-    setIsActive((prevState) => !prevState);
+  function toggleDropdown() {
+    setIsOpen((prevState) => !prevState);
   }
-
-  useEffect(() => {
-    closeWhenClickedOutsideTheElement(dropRef, setIsActive);
-  }, []);
 
   return (
     <div
-      className={`${styles.dropdown} ${isActive && styles.active}`}
+      className={`${styles.dropdown} ${isOpen && styles.active}`}
       ref={dropRef}
     >
       <button
         className={styles.dropdown_button}
-        onClick={() => defineIsActive()}
-        aria-expanded={isActive}
+        onClick={toggleDropdown}
+        aria-expanded={isOpen}
         aria-controls={`dropdown-${data.group}`}
       >
         <div className={styles.button_wrapper}>
@@ -51,7 +47,7 @@ export default function Dropdown(props: PropsType) {
       <section
         className={styles.dropdown_skills}
         id={`dropdown-${data.group}`}
-        aria-hidden={!isActive}
+        aria-hidden={!isOpen}
         aria-label="Skill progress"
       >
         <div className={styles.dropdown_skills_wrapper}>

@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import useToggle from "@/hooks/useToggle";
 import styles from "@/styles/inputs/Sort.module.scss";
+
 import { PiPlus } from "react-icons/pi";
 
 type SortOption<T extends string> = {
@@ -19,7 +20,7 @@ type PropsType<T extends string> = {
 export default function Sort<T extends string>(props: PropsType<T>) {
   const { title, sortOptions, sortValue, handleValue } = props;
   const sortRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useToggle({ element: sortRef });
+  const [isOpen, setIsOpen] = useToggle({ elements: [sortRef] });
 
   function onChange(value: T) {
     handleValue(value);
