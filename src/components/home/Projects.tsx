@@ -13,22 +13,33 @@ import styles from "@/styles/home/Projects.module.scss";
 
 import Container from "@/components/layout/Container";
 import ProjectItem from "../layout/ProjectsItem";
-import Sort from "../buttons/Sort";
+import Sort from "../inputs/Sort";
 import Filter from "../buttons/Filter";
 import Button from "../buttons/Button";
 
 type SortType = "da" | "dd" | "na" | "nd";
+type SortOption = {
+  name: string;
+  value: SortType;
+  default?: boolean;
+};
 
 export default function Projects() {
   const [projects, setProjects] = useState(dataProjects.slice(0, 8));
   const [seen, setSeen] = useState(8);
-  const [sort, setSort] = useState<SortType>("da");
+  const [sortValue, setSortValue] = useState<SortType>("da");
   const [filter, setFilter] = useState([
     { name: "Select All", value: "DISREGARD", selected: true },
     { name: "API", value: "API", selected: true },
     { name: "Excel", value: "Excel", selected: true },
     { name: "Website", value: "Website", selected: true },
   ]);
+  const sortOptions: SortOption[] = [
+    { name: "By date (ASC)", value: "da", default: true },
+    { name: "By date (DESC)", value: "dd" },
+    { name: "By name (ASC)", value: "na" },
+    { name: "By name (DESC)", value: "nd" },
+  ];
 
   function sortArrayByMethod(arr: ProjectsType[], method: SortType) {
     if (method === "na") return sortByNameASC(arr);
@@ -41,7 +52,7 @@ export default function Projects() {
   function sortProjects(method: SortType) {
     const sortedProjects = sortArrayByMethod(projects, method);
     setProjects([...sortedProjects]);
-    setSort(method);
+    setSortValue(method);
   }
 
   function filteredByType(
@@ -56,7 +67,7 @@ export default function Projects() {
       item.tags.some((tag) => onlyCheckeds.includes(tag))
     );
 
-    setProjects(sortArrayByMethod(limitedByLimit(filteredProjects), sort));
+    setProjects(sortArrayByMethod(limitedByLimit(filteredProjects), sortValue));
   }
 
   function limitedByLimit(arr: ProjectsType[]) {
@@ -93,7 +104,12 @@ export default function Projects() {
 
           <div className={styles.projects_wrapper}>
             <div className={styles.projects_manager}>
-              <Sort sort={sort} handleValue={sortProjects} />
+              <Sort
+                title="Sort"
+                sortOptions={sortOptions}
+                sortValue={sortValue}
+                handleValue={sortProjects}
+              />
               <Filter state={{ filter, setFilter }} />
             </div>
             <div className={styles.projects_grid}>
