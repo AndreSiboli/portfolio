@@ -27,14 +27,14 @@ export default function FormContact() {
   return (
     <form action="" className={styles.form}>
       <div className={styles.form_input}>
-        {["name", "email", "subject"].map((string) => (
+        {["name", "email", "subject"].map((key) => (
           <Input
-            id={string}
-            name={string}
-            label={`${string[0].toUpperCase()}${string.slice(1)}`}
-            type={string === "email" ? "email" : "text"}
-            reference={refs[string] as RefObject<HTMLInputElement | null>}
-            key={string}
+            id={key}
+            name={key}
+            label={`${key[0].toUpperCase()}${key.slice(1)}`}
+            type={key === "email" ? "email" : "text"}
+            reference={refs[key] as RefObject<HTMLInputElement | null>}
+            key={key}
           />
         ))}
 
