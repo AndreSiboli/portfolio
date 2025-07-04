@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useRef } from "react";
 import useToggle from "@/hooks/useToggle";
 import styles from "@/styles/inputs/Select.module.scss";
-import Checkbox from "../input/Checkbox";
+import Checkbox from "./Checkbox";
 
 import { PiMagnifyingGlass } from "react-icons/pi";
 

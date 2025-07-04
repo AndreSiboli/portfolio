@@ -1,5 +1,5 @@
 import { ComponentProps } from "react";
-import styles from "@/styles/input/Checkbox.module.scss";
+import styles from "@/styles/inputs/Checkbox.module.scss";
 import { FaCheck } from "react-icons/fa6";
 
 interface PropsType extends ComponentProps<"input"> {
