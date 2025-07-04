@@ -1,98 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { projects as dataProjects } from "@/datas/projects";
-import { ProjectsType } from "@/_types/projectsType";
-import {
-  sortByDateASC,
-  sortByDateDESC,
-  sortByNameASC,
-  sortByNameDESC,
-} from "@/utils/projectManager";
+import { SortType } from "@/utils/projectsManager";
+import { useProjectsManager } from "@/hooks/useProjectManager";
 import styles from "@/styles/home/Projects.module.scss";
 
 import Container from "@/components/layout/Container";
 import ProjectItem from "../layout/ProjectsItem";
-import Sort from "../inputs/Sort";
-import Filter from "../buttons/Filter";
+import Sort, { SortOption } from "../inputs/Sort";
+import Select from "../inputs/Select";
 import Button from "../buttons/Button";
 
-type SortType = "da" | "dd" | "na" | "nd";
-type SortOption = {
-  name: string;
-  value: SortType;
-  default?: boolean;
-};
-
 export default function Projects() {
-  const [projects, setProjects] = useState(dataProjects.slice(0, 8));
-  const [seen, setSeen] = useState(8);
-  const [sortValue, setSortValue] = useState<SortType>("da");
-  const [filter, setFilter] = useState([
-    { name: "Select All", value: "DISREGARD", selected: true },
-    { name: "API", value: "API", selected: true },
-    { name: "Excel", value: "Excel", selected: true },
-    { name: "Website", value: "Website", selected: true },
-  ]);
-  const sortOptions: SortOption[] = [
+  const {
+    filter,
+    allProjectsLoaded,
+    projects,
+    setFilter,
+    setSortValue,
+    seeMoreProjects,
+    sortValue,
+  } = useProjectsManager(dataProjects);
+
+  const sortOptions: SortOption<SortType>[] = [
     { name: "By date (ASC)", value: "da", default: true },
     { name: "By date (DESC)", value: "dd" },
     { name: "By name (ASC)", value: "na" },
     { name: "By name (DESC)", value: "nd" },
   ];
-
-  function sortArrayByMethod(arr: ProjectsType[], method: SortType) {
-    if (method === "na") return sortByNameASC(arr);
-    if (method === "nd") return sortByNameDESC(arr);
-    if (method === "da") return sortByDateASC(arr);
-    if (method === "dd") return sortByDateDESC(arr);
-    return dataProjects;
-  }
-
-  function sortProjects(method: SortType) {
-    const sortedProjects = sortArrayByMethod(projects, method);
-    setProjects([...sortedProjects]);
-    setSortValue(method);
-  }
-
-  function filteredByType(
-    filter: {
-      name: string;
-      value: string;
-      selected: boolean;
-    }[]
-  ) {
-    const onlyCheckeds = filter.filter((f) => f.selected).map((f) => f.value);
-    const filteredProjects = dataProjects.filter((item) =>
-      item.tags.some((tag) => onlyCheckeds.includes(tag))
-    );
-
-    setProjects(sortArrayByMethod(limitedByLimit(filteredProjects), sortValue));
-  }
-
-  function limitedByLimit(arr: ProjectsType[]) {
-    const limitedArr = arr.slice(0, seen);
-    return limitedArr;
-  }
-
-  function seeMoreProjects() {
-    const newSeen = seen + 8;
-    filteredByType(filter);
-    setSeen(newSeen);
-  }
-
-  function checkIfAllLimitedProjectedAreShowed() {
-    const onlyCheckeds = filter.filter((f) => f.selected).map((f) => f.value);
-    const filteredProjects = dataProjects.filter((item) =>
-      item.tags.some((tag) => onlyCheckeds.includes(tag))
-    );
-
-    return projects.length === filteredProjects.length;
-  }
-
-  useEffect(() => {
-    filteredByType(filter);
-  }, [filter, seen]);
 
   return (
     <section className={styles.projects} id="projects">
@@ -108,9 +43,12 @@ export default function Projects() {
                 title="Sort"
                 sortOptions={sortOptions}
                 sortValue={sortValue}
-                handleValue={sortProjects}
+                handleValue={setSortValue}
               />
-              <Filter state={{ filter, setFilter }} />
+              <Select
+                title="Filter"
+                state={{ select: filter, setSelect: setFilter }}
+              />
             </div>
             <div className={styles.projects_grid}>
               {projects.map((item) => (
@@ -118,7 +56,7 @@ export default function Projects() {
               ))}
             </div>
             <div className={styles.projects_button}>
-              {!checkIfAllLimitedProjectedAreShowed() ? (
+              {!allProjectsLoaded ? (
                 <Button onClick={seeMoreProjects}>Load more</Button>
               ) : (
                 <p>You&apos;ve seen all the projects</p>

@@ -1,91 +1,93 @@
 import { Dispatch, SetStateAction, useRef } from "react";
 import useToggle from "@/hooks/useToggle";
-import styles from "@/styles/buttons/Filter.module.scss";
+import styles from "@/styles/inputs/Select.module.scss";
 import Checkbox from "../input/Checkbox";
 
 import { PiMagnifyingGlass } from "react-icons/pi";
 
-type value = {
+export type SelectOptionType = {
   name: string;
   value: string;
-  selected: boolean;
+  isSelected: boolean;
 };
+
 interface PropsType {
-  state: { filter: value[]; setFilter: Dispatch<SetStateAction<value[]>> };
+  title: string;
+  state: {
+    select: SelectOptionType[];
+    setSelect: Dispatch<SetStateAction<SelectOptionType[]>>;
+  };
 }
 
-export default function Filter(props: PropsType) {
-  const { state } = props;
-  const filterRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useToggle({ elements: [filterRef] });
-
-  function defineIsOpen() {
-    setIsOpen((prevState) => !prevState);
-  }
+export default function Select(props: PropsType) {
+  const { title, state } = props;
+  const selectRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useToggle({ elements: [selectRef] });
 
   function isSelected(value: string) {
-    let selectors = [...state.filter];
+    let selectors = [...state.select];
 
     if (value !== "DISREGARD") {
       //Set true/false the clicked one
       selectors = selectors.map((box) =>
-        box.value === value ? { ...box, selected: !box.selected } : box
+        box.value === value ? { ...box, isSelected: !box.isSelected } : box
       );
+
       //Checks if has an unchecked one.
       const isThereUnchecked = !!selectors.find(
-        (box) => !box.selected && box.value !== "DISREGARD"
+        (box) => !box.isSelected && box.value !== "DISREGARD"
       );
+
       //If has one false, the Select All turns unchecked, otherwise checked
       selectors = selectors.map((box) =>
         box.value === "DISREGARD"
           ? {
               ...box,
-              selected: !isThereUnchecked,
+              isSelected: !isThereUnchecked,
               name: isThereUnchecked ? "Select All" : "Unselect All",
             }
           : box
       );
 
-      return state.setFilter(selectors);
+      return state.setSelect(selectors);
     }
 
     //if all of them are true
     const areAllTrue = !!selectors.every((box) =>
-      box.value === "sa" ? true : box.selected
+      box.value === "DISREGARD" ? true : box.isSelected
     );
 
     selectors = selectors.map((box) =>
       box.value !== "DISREGARD"
-        ? { ...box, selected: !areAllTrue }
+        ? { ...box, isSelected: !areAllTrue }
         : {
             ...box,
-            selected: !areAllTrue,
             name: !areAllTrue ? "Unselect All" : "Select All",
+            isSelected: !areAllTrue,
           }
     );
 
-    state.setFilter(selectors);
-  }
-
-  function onChange(value: string) {
-    isSelected(value);
+    state.setSelect(selectors);
   }
 
   return (
     <div
-      className={`${styles.filter} ${isOpen && styles.opened}`}
-      ref={filterRef}
+      className={`${styles.select} ${isOpen && styles.opened}`}
+      ref={selectRef}
     >
-      <button className={styles.filter_title} onClick={defineIsOpen}>
-        <p>Filter</p>
+      <button
+        className={styles.select_title}
+        onClick={() => setIsOpen((prevState) => !prevState)}
+      >
+        <p>{title}</p>
         <PiMagnifyingGlass />
       </button>
-      <div className={styles.filter_container}>
-        <div className={styles.filter_options}>
-          {state.filter.map((option) => (
+      <div className={styles.select_container}>
+        <div className={styles.select_options}>
+          {state.select.map((option) => (
             <div
               className={`${styles.option} ${
-                option.selected && styles.selected
+                option.isSelected && styles.selected
               }`}
               key={option.value}
             >
@@ -93,18 +95,18 @@ export default function Filter(props: PropsType) {
                 type="checkbox"
                 name={option.name}
                 id={option.value}
-                checked={option.selected}
+                checked={option.isSelected}
                 value={option.value}
-                onChange={() => onChange(option.value)}
+                onChange={() => isSelected(option.value)}
               />
               <Checkbox
                 name={option.name}
-                isChecked={option.selected}
-                onClick={() => onChange(option.value)}
+                isChecked={option.isSelected}
+                onClick={() => isSelected(option.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    onChange(option.value);
+                    isSelected(option.value);
                   }
                 }}
               />

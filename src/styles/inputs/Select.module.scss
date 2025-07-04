@@ -2,7 +2,7 @@
 @use "@/styles/_dirs/mixins" as mix;
 @use "@/styles/_dirs/accessibility" as acc;
 
-.filter {
+.select {
   position: relative;
   z-index: 5;
 
@@ -63,7 +63,7 @@
   }
 
   &.opened {
-    .filter_container {
+    .select_container {
       display: block;
     }
   }

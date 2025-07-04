@@ -4,7 +4,7 @@ import styles from "@/styles/inputs/Sort.module.scss";
 
 import { PiPlus } from "react-icons/pi";
 
-type SortOption<T extends string> = {
+export type SortOption<T extends string> = {
   name: string;
   value: T;
   default?: boolean;
