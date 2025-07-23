@@ -39,7 +39,7 @@ export default function Card(props: PropsType) {
             </header>
 
             <div className={styles.info_middle}>
-              <div>
+              <div className={styles.middle_tag}>
                 {data.tags.map((tag) => (
                   <Tag text={tag} category={tag.toLowerCase()} key={tag} />
                 ))}

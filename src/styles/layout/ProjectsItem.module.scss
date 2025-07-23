@@ -47,6 +47,9 @@
     }
 
     .info_tags {
+      display: flex;
+      gap: 0.5em;
+      flex-wrap: wrap;
       margin-top: 0.25em;
     }
   }

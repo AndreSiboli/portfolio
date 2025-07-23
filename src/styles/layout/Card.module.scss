@@ -97,6 +97,12 @@
         align-items: center;
         margin-top: 0.5em;
 
+        .middle_tag{
+          display: flex;
+          gap: .5em;
+          flex-wrap: wrap;
+        }
+
         time {
           font-size: 0.9em;
           color: var(--text-soft);

@@ -14,8 +14,23 @@ import excel from "@/assets/projects/excel.jpg";
 import charlotte from "@/assets/projects/charlotte.jpg";
 import frame from "@/assets/projects/frame.jpg";
 import alter from "@/assets/projects/alter-ego.png";
+import sign from "@/assets/projects/sign.jpg";
 
 export const projects: ProjectsType[] = [
+  {
+    id: "A408BA",
+    name: "Login System",
+    links: {
+      website: "https://login-system-pink.vercel.app/",
+      github: "https://github.com/AndreSiboli/login-system",
+    },
+    src: { thumbnail: sign },
+    tags: ["Website", "API"],
+    description:
+      "The main focus of this site is to implement a login system based in JWT. No emphasis on design.",
+    postedAt: "2025/06/15",
+    technologies: ["Next.js", "Typescript", "Sass", "React"],
+  },
   {
     id: "F907EA",
     name: "Alter ego",
