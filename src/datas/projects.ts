@@ -84,7 +84,7 @@ export const projects: ProjectsType[] = [
     tags: ["Website"],
     description:
       "I've created this photographer portfolio as a personal project. It was recently redesigned with a new layout and animations. Please note that this is not a real website. All image credits are listed in the footer.",
-    postedAt: "2025/06/25",
+    postedAt: "2025/08/04",
     technologies: ["Next.js", "Typescript", "Sass", "React"],
   },
   {
