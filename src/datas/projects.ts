@@ -164,8 +164,8 @@ export const projects: ProjectsType[] = [
     src: { thumbnail: jwt },
     tags: ["API"],
     description:
-      "Here is my first attempt at creating a JWT-based API. The system incorporates refresh tokens to replace expired tokens, ensuring seamless user authentication. For added security, it utilizes HTTP-only cookies to safeguard user data.",
-    postedAt: "2024/06/26",
+      "This is a JWT-based API. The system incorporates refresh tokens to replace expired tokens, ensuring seamless user authentication. For added security, it utilizes HTTP-only cookies to safeguard user data.",
+    postedAt: "2025/08/20",
     technologies: ["Node.js", "Typescript", "Express", "Mongodb"],
   },
   {
